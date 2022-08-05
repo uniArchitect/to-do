@@ -1,3 +1,6 @@
 import './styles.css';
+import Task from './task.js';
 
-console.log('To Do List App')
+// GLOBAL SCOPE
+
+// Event - Open Task Form

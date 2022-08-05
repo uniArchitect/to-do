@@ -9,6 +9,27 @@
 </head>
 <body>
     <div class="container">
+        <aside class="task-form-background">
+            <form action="index.html" method="get" class="task-form-field">
+                <ul class="task-form">
+                    <li>
+                        <label for="name">
+                            Task Name
+                        </label>
+                        <input type="text" id="name" name="task-name">
+                        <label for="due-date">
+                            <!-- This should be a calendar element later -->
+                            Due Date
+                        </label>
+                        <input type="text" id="due-date" name="task-due-date">
+                        <label for="description">
+                            Task Description
+                        </label>
+                        <input type="text" id="description" name="task-description">
+                    </li>
+                </ul>
+            </form>
+        </aside>
         <div class="task-display">
             <div class="task-header">
                 TASK HEADER
