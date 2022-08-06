@@ -13,18 +13,27 @@ CREATE_TASK_BTN.addEventListener('click', () => {
     TASK_FORM_DIV.style.display = 'block';
 })
 
-// Event - Append Category to ul when clicked
+// Event - Create input field for new category
 NEW_CATEGORY_BTN.addEventListener('click', () => {
-    const catName = 'New Category!'
-    const category = new Category(catName);
+    CategoryUI.categoryInput();
+})
 
-    Category.addCategoryContainer();
-    Category.addSideBarLink();
+// Event - Append create Category
+// Note: Event listener has to work off the parent element of the form
+document.querySelector('.custom-categories').addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    const name = document.querySelector('#category-input-name').value;
+
+    const category = new Category(name)
+
+    CategoryUI.addCategoryContainer(category);
+
+    CategoryUI.addSideBarLink(category);
 })
 
 // Event - Close Task Form when click 'Close'
 CLOSE_TASK_BTN.addEventListener('click', () => {
     TASK_FORM_DIV.style.display = 'none';
 })
-
-// Event - Close Category Form when click on 'Close'

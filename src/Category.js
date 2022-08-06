@@ -10,7 +10,32 @@ export default class Category {
 
 class CategoryUI {
 
-    static addCategoryContainer = () => {
+    static categoryInput = () => {
+        const SIDEBAR_DIV = document.querySelector('.custom-categories');
+        
+        const categoryForm = document.createElement('form')
+        const inputField = document.createElement('input')
+        const inputSubmit = document.createElement('input')
+
+        categoryForm.setAttribute('action', 'index.html')
+        categoryForm.setAttribute('method', 'GET')
+        categoryForm.classList.add('category-form')
+
+        inputField.setAttribute('required', '')
+        inputField.setAttribute('type', 'text')
+        inputField.setAttribute('id', 'category-input-name')
+
+        inputSubmit.setAttribute('type', 'submit')
+        inputSubmit.setAttribute('id', 'category-submit')
+        inputSubmit.setAttribute('value', 'Submit')
+        // inputSubmit.innerHTML = 'Submit';
+
+        categoryForm.append(inputField, inputSubmit)
+
+        SIDEBAR_DIV.appendChild(categoryForm)
+    }
+
+    static addCategoryContainer = (category) => {
         const CONTAINER_DIV = document.querySelector('.container');
 
         // Create - HTML element for main category list
@@ -19,12 +44,12 @@ class CategoryUI {
         const categoryList = document.createElement('div');
         const createTask = document.createElement('button');
 
-        categoryContainer.classList.add(`${this.name}-display`)
-        categoryName.classList.add(`${this.name}-name`)
-        categoryList.classList.add(`${this.name}-list`)
+        categoryContainer.classList.add(`${category.name}-display`)
+        categoryName.classList.add(`${category.name}-name`)
+        categoryList.classList.add(`${category.name}-list`)
 
-        categoryName.innerHTML = `${this.name}`
-        categoryList.innerHTML = `${this.name} list`
+        categoryName.innerHTML = `${category.name}`
+        categoryList.innerHTML = `${category.name} list`
         createTask.innerHTML = 'CREATE A TASK';
 
         categoryContainer.append(categoryName, categoryList, createTask);
@@ -32,15 +57,15 @@ class CategoryUI {
         CONTAINER_DIV.appendChild(categoryContainer)
     } 
 
-    static addSideBarLink = () => {
+    static addSideBarLink = (category) => {
         // Create - HTML element for link for sidebar
         const SIDEBAR_DIV = document.querySelector('.custom-categories');
 
         const sideBarLink = document.createElement('a');
 
-        sideBarLink.classList.add(`${this.name}-category`)
+        sideBarLink.classList.add(`${category.name}-category`)
 
-        sideBarLink.innerHTML = `${this.name}`
+        sideBarLink.innerHTML = `${category.name}`
 
         SIDEBAR_DIV.appendChild(sideBarLink)
     }
