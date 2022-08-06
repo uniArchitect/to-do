@@ -30,11 +30,13 @@ export default class Category {
 
     static addSideBarLink = () => {
         // Create - HTML element for link for sidebar
-        const SIDEBAR_DIV = document.querySelector('.sidebar');
+        const SIDEBAR_DIV = document.querySelector('.custom-categories');
 
         const sideBarLink = document.createElement('a');
 
         sideBarLink.classList.add(`${this.name}-category`)
+
+        sideBarLink.innerHTML = `${this.name}`
 
         SIDEBAR_DIV.appendChild(sideBarLink)
     }
