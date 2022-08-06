@@ -42,7 +42,7 @@ class CategoryUI {
         // Create - HTML element for main category list
         const categoryContainer = document.createElement('div');
         const categoryName = document.createElement('div');
-        const categoryList = document.createElement('div');
+        const categoryList = document.createElement('ul');
         const createTask = document.createElement('button');
 
         categoryContainer.classList.add(`${category.name}-display`)
@@ -50,7 +50,7 @@ class CategoryUI {
         categoryList.classList.add(`${category.name}-list`)
 
         categoryName.innerHTML = `${category.name}`
-        categoryList.innerHTML = `${category.name} list`
+        // categoryList.innerHTML = `${category.name} list`
         createTask.innerHTML = 'CREATE A TASK';
 
         categoryContainer.append(categoryName, categoryList, createTask);
@@ -72,10 +72,6 @@ class CategoryUI {
 
         SIDEBAR_DIV.appendChild(sideBarLink);
     }
-
-    // function switchCategory (category)
-        // ALL_CONTAINER_DIVS style display = none
-        // category.style.display = block
 
     static switchCategory = (category) => {
         // All children elements in main-UI container div are pushed into an array

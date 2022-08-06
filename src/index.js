@@ -19,15 +19,11 @@ NEW_CATEGORY_BTN.addEventListener('click', () => {
     const CREATE_CAT_UL = document.querySelector('.create-category-container')
     const CATEGORY_FORM = document.querySelector('.category-form');
 
-    // CategoryUI.categoryInput();
-    // NEW_CATEGORY_BTN.style.display = 'none';
-
     if (CREATE_CAT_UL.childElementCount == '1') {
         CategoryUI.categoryInput();
         
         NEW_CATEGORY_BTN.style.display = 'none';
     } else {
-        // const CATEGORY_FORM = document.querySelector('.category-form')
         document.querySelector('#category-input-name').value = '';
 
         CATEGORY_FORM.style.display = 'block';
@@ -58,7 +54,6 @@ document.querySelector('.create-category-container').addEventListener('submit', 
     CategoryUI.addSideBarLink(category);
 
     // Hide input after submit
-    // const CATEGORY_FORM = document.querySelector('.category-form');
     CATEGORY_FORM.style.display = 'none';
 
     // New category button reappears
