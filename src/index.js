@@ -1,6 +1,7 @@
 import './styles.css';
 import Task from './task.js';
 import UI from './addTask.js';
+import Category from './addCategory';
 
 // GLOBAL SCOPE
 const TASK_FORM_DIV = document.querySelector('.task-form-background')
@@ -12,9 +13,12 @@ CREATE_TASK_BTN.addEventListener('click', () => {
     TASK_FORM_DIV.style.display = 'block';
 })
 
+// Event - Open Category Form when click on 'NEW CATEGORY'
+
+
 // Event - Close Task Form when click 'Close'
 CLOSE_TASK_BTN.addEventListener('click', () => {
     TASK_FORM_DIV.style.display = 'none';
 })
 
-// Event - Add task to list with import Task class
+// Event - Close Category Form when click on 'Close'

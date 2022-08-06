@@ -110,6 +110,16 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/addCategory":
+/*!*************************!*\
+  !*** ./src/addCategory ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Category)\n/* harmony export */ });\n// Event - Click on new category - Append a new li element\n\nclass Category {\n    constructor(name) {\n        this.name = name;\n        this.list = '';\n    }  \n\n    static addCategory = () => {\n        const categoryContainer = document.createElement('div');\n        const categoryName = document.createElement('div');\n        const categoryList = document.createElement('div');\n        const createTask = document.createElement('button');\n\n        createTask.innerHTML = 'CREATE A TASK';\n    } \n}\n\n//# sourceURL=webpack://to-do/./src/addCategory?");
+
+/***/ }),
+
 /***/ "./src/addTask.js":
 /*!************************!*\
   !*** ./src/addTask.js ***!
@@ -126,7 +136,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task.js */ \"./src/task.js\");\n/* harmony import */ var _addTask_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addTask.js */ \"./src/addTask.js\");\n\n\n\n\n// GLOBAL SCOPE\nconst TASK_FORM_DIV = document.querySelector('.task-form-background')\nconst CREATE_TASK_BTN = document.querySelector('.task-create')\nconst CLOSE_TASK_BTN = document.querySelector('.close-task-form')\n\n// Event - Open Task Form when click on 'CREATE A TASK'\nCREATE_TASK_BTN.addEventListener('click', () => {\n    TASK_FORM_DIV.style.display = 'block';\n})\n\n// Event - Close Task Form when click 'Close'\nCLOSE_TASK_BTN.addEventListener('click', () => {\n    TASK_FORM_DIV.style.display = 'none';\n})\n\n// Event - Add task to list with import Task class\n\n//# sourceURL=webpack://to-do/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task.js */ \"./src/task.js\");\n/* harmony import */ var _addTask_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addTask.js */ \"./src/addTask.js\");\n/* harmony import */ var _addCategory__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./addCategory */ \"./src/addCategory\");\n\n\n\n\n\n// GLOBAL SCOPE\nconst TASK_FORM_DIV = document.querySelector('.task-form-background')\nconst CREATE_TASK_BTN = document.querySelector('.task-create')\nconst CLOSE_TASK_BTN = document.querySelector('.close-task-form')\n\n// Event - Open Task Form when click on 'CREATE A TASK'\nCREATE_TASK_BTN.addEventListener('click', () => {\n    TASK_FORM_DIV.style.display = 'block';\n})\n\n// Event - Open Category Form when click on 'NEW CATEGORY'\n\n\n// Event - Close Task Form when click 'Close'\nCLOSE_TASK_BTN.addEventListener('click', () => {\n    TASK_FORM_DIV.style.display = 'none';\n})\n\n// Event - Close Category Form when click on 'Close'\n\n//# sourceURL=webpack://to-do/./src/index.js?");
 
 /***/ }),
 

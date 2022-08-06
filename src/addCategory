@@ -1,0 +1,17 @@
+// Event - Click on new category - Append a new li element
+
+export default class Category {
+    constructor(name) {
+        this.name = name;
+        this.list = '';
+    }  
+
+    static addCategory = () => {
+        const categoryContainer = document.createElement('div');
+        const categoryName = document.createElement('div');
+        const categoryList = document.createElement('div');
+        const createTask = document.createElement('button');
+
+        createTask.innerHTML = 'CREATE A TASK';
+    } 
+}

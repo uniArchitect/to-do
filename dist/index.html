@@ -40,6 +40,7 @@
                 </ul>
             </form>
         </aside>
+        <!-- Task Display will hide when a category is selected -->
         <div class="task-display">
             <div class="task-header">
                 TASK HEADER
@@ -52,12 +53,13 @@
             </button>    
         </div>
         <div class="sidebar">
-            <div class="pinned-categories">
+            <ul class="pinned-categories">
                 PINNED CATEGORIES
-            </div>
-            <div class="custom-categories">
+                <!-- JS function, Click on new category - Append a new li element -->
+            </ul>
+            <ul class="custom-categories">
                 CUSTOM CATEGORIES
-            </div>
+            </ul>
             <button class="create-category">
                 NEW CATEGORY
             </button>
