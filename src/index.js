@@ -1,7 +1,6 @@
 import './styles.css';
 import Task from './task.js';
-import UI from './addTask.js';
-import Category, { addCategoryContainer, addSideBarLink } from './addCategory';
+import Category, { CategoryUI } from './Category';
 
 // GLOBAL SCOPE
 const TASK_FORM_DIV = document.querySelector('.task-form-background')

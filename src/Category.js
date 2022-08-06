@@ -5,8 +5,10 @@
 export default class Category {
     constructor(name) {
         this.name = name;
-        this.list = '';
     }  
+}
+
+class CategoryUI {
 
     static addCategoryContainer = () => {
         const CONTAINER_DIV = document.querySelector('.container');
@@ -43,3 +45,5 @@ export default class Category {
         SIDEBAR_DIV.appendChild(sideBarLink)
     }
 }
+
+export { CategoryUI }
