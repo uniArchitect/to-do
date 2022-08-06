@@ -17,13 +17,13 @@ CREATE_TASK_BTN.addEventListener('click', () => {
 // Event - Create input field for new category
 // Note: Should disappear when form to create new category is created
 NEW_CATEGORY_BTN.addEventListener('click', () => {
-    const CUSTOM_CAT_UL = document.querySelector('.custom-categories')
+    const CREATE_CAT_UL = document.querySelector('.create-category-container')
     const CATEGORY_FORM = document.querySelector('.category-form');
 
     // CategoryUI.categoryInput();
     // NEW_CATEGORY_BTN.style.display = 'none';
 
-    if (CUSTOM_CAT_UL.childElementCount == '0') {
+    if (CREATE_CAT_UL.childElementCount == '1') {
         CategoryUI.categoryInput();
         
         NEW_CATEGORY_BTN.style.display = 'none';
@@ -40,7 +40,7 @@ NEW_CATEGORY_BTN.addEventListener('click', () => {
 // Event - Append create Category
 // Note: Event listener has to work off the parent element of the form
 // Note: Containers may need to be reorganized so that container and sidebar elements do not overlap
-document.querySelector('.custom-categories').addEventListener('submit', (e) => {
+document.querySelector('.create-category-container').addEventListener('submit', (e) => {
 
     e.preventDefault();
 

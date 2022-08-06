@@ -11,7 +11,7 @@ export default class Category {
 class CategoryUI {
 
     static categoryInput = () => {
-        const SIDEBAR_DIV = document.querySelector('.custom-categories');
+        const CREATE_CAT_DIV = document.querySelector('.create-category-container');
         
         const categoryForm = document.createElement('form')
         const inputField = document.createElement('input')
@@ -32,7 +32,7 @@ class CategoryUI {
 
         categoryForm.append(inputField, inputSubmit)
 
-        SIDEBAR_DIV.appendChild(categoryForm)
+        CREATE_CAT_DIV.appendChild(categoryForm)
     }
 
     static addCategoryContainer = (category) => {
