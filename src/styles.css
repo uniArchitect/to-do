@@ -34,3 +34,8 @@ body, html {
             grid-column: 1;
             grid-row: 1 / 13;
         }
+
+            .custom-categories {
+                display: flex;
+                flex-direction: column;
+            }

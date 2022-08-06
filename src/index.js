@@ -18,6 +18,7 @@ CREATE_TASK_BTN.addEventListener('click', () => {
 // Note: Should disappear when form to create new category is created
 NEW_CATEGORY_BTN.addEventListener('click', () => {
     const CUSTOM_CAT_UL = document.querySelector('.custom-categories')
+    const CATEGORY_FORM = document.querySelector('.category-form');
 
     // CategoryUI.categoryInput();
     // NEW_CATEGORY_BTN.style.display = 'none';
@@ -27,7 +28,8 @@ NEW_CATEGORY_BTN.addEventListener('click', () => {
         
         NEW_CATEGORY_BTN.style.display = 'none';
     } else {
-        const CATEGORY_FORM = document.querySelector('.category-form')
+        // const CATEGORY_FORM = document.querySelector('.category-form')
+        document.querySelector('#category-input-name').value = '';
 
         CATEGORY_FORM.style.display = 'block';
         NEW_CATEGORY_BTN.style.display = 'none';
@@ -42,6 +44,7 @@ document.querySelector('.custom-categories').addEventListener('submit', (e) => {
 
     e.preventDefault();
 
+    const CATEGORY_FORM = document.querySelector('.category-form');
     const name = document.querySelector('#category-input-name').value;
 
     const category = new Category(name);
@@ -51,9 +54,8 @@ document.querySelector('.custom-categories').addEventListener('submit', (e) => {
     CategoryUI.addSideBarLink(category);
 
     // Hide input after submit
-    const CATEGORY_FORM = document.querySelector('.category-form');
+    // const CATEGORY_FORM = document.querySelector('.category-form');
     CATEGORY_FORM.style.display = 'none';
-    // name = '';
 
     // New category button reappears
     NEW_CATEGORY_BTN.style.display = 'block';
