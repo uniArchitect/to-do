@@ -14,8 +14,11 @@ CREATE_TASK_BTN.addEventListener('click', () => {
 })
 
 // Event - Create input field for new category
+// Note: Should disappear when form to create new category is created
 NEW_CATEGORY_BTN.addEventListener('click', () => {
     CategoryUI.categoryInput();
+
+    NEW_CATEGORY_BTN.style.display = 'none';
 })
 
 // Event - Append create Category
