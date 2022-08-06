@@ -37,6 +37,7 @@ class CategoryUI {
 
     static addCategoryContainer = (category) => {
         const MAIN_UI_DIV = document.querySelector('.main-UI');
+        // MAIN - UI should be an array
 
         // Create - HTML element for main category list
         const categoryContainer = document.createElement('div');
@@ -77,10 +78,17 @@ class CategoryUI {
         // category.style.display = block
 
     static switchCategory = (category) => {
-        const otherContainers = document.querySelector('.task-display');
-        const currentContainer = document.querySelector(`.${category.name}-display`)
-        otherContainers.style.display = 'none';
+        // All children elements in main-UI container div are pushed into an array
+        const otherContainers = document.querySelector('.main-UI').children;
+        const categoryContainerArray = [...otherContainers];
+        // console.log(categoryContainerArray);
 
+        const currentContainer = document.querySelector(`.${category.name}-display`);
+
+        // Each children element in the array set style display to none
+        categoryContainerArray.forEach(element => element.style.display = 'none');
+
+        // current container that was created style display to block
         currentContainer.style.display = 'block';
     }
 }
