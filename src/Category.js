@@ -54,7 +54,9 @@ class CategoryUI {
 
         categoryContainer.append(categoryName, categoryList, createTask);
 
-        MAIN_UI_DIV.appendChild(categoryContainer)
+        MAIN_UI_DIV.appendChild(categoryContainer);
+
+        return categoryContainer
     } 
 
     static addSideBarLink = (category) => {
@@ -63,11 +65,23 @@ class CategoryUI {
 
         const sideBarLink = document.createElement('a');
 
-        sideBarLink.classList.add(`${category.name}-category`)
+        sideBarLink.classList.add(`${category.name}-category`);
 
-        sideBarLink.innerHTML = `${category.name}`
+        sideBarLink.innerHTML = `${category.name}`;
 
-        SIDEBAR_DIV.appendChild(sideBarLink)
+        SIDEBAR_DIV.appendChild(sideBarLink);
+    }
+
+    // function switchCategory (category)
+        // ALL_CONTAINER_DIVS style display = none
+        // category.style.display = block
+
+    static switchCategory = (category) => {
+        const otherContainers = document.querySelector('.task-display');
+        const currentContainer = document.querySelector(`.${category.name}-display`)
+        otherContainers.style.display = 'none';
+
+        currentContainer.style.display = 'block';
     }
 }
 

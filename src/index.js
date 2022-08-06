@@ -7,7 +7,6 @@ const TASK_FORM_DIV = document.querySelector('.task-form-background')
 const CREATE_TASK_BTN = document.querySelector('.task-create')
 const CLOSE_TASK_BTN = document.querySelector('.close-task-form')
 const NEW_CATEGORY_BTN = document.querySelector('.create-category')
-const CATEGORY_FORM = document.querySelector('.category-form');
 
 // Event - Open Task Form when click on 'CREATE A TASK'
 CREATE_TASK_BTN.addEventListener('click', () => {
@@ -49,8 +48,13 @@ document.querySelector('.create-category-container').addEventListener('submit', 
 
     const category = new Category(name);
 
+    // Adds a category container to main-UI
     CategoryUI.addCategoryContainer(category);
 
+    // function CategoryUI.switchCategory(category) - existing cat container display = none, new cat container display = block
+    CategoryUI.switchCategory(category)
+
+    // Adds a sidebar link to the sidebar
     CategoryUI.addSideBarLink(category);
 
     // Hide input after submit
@@ -65,3 +69,6 @@ document.querySelector('.create-category-container').addEventListener('submit', 
 CLOSE_TASK_BTN.addEventListener('click', () => {
     TASK_FORM_DIV.style.display = 'none';
 })
+
+// Feature - Each category created is a tab that will change the main-UI div element
+// Note: Ref Restaurant Page to change display of 'category-container' (may look like ${category}-container based on category class)
