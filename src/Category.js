@@ -36,7 +36,7 @@ class CategoryUI {
     }
 
     static addCategoryContainer = (category) => {
-        const MAIN_DIV = document.querySelector('.main-UI');
+        const MAIN_UI_DIV = document.querySelector('.main-UI');
 
         // Create - HTML element for main category list
         const categoryContainer = document.createElement('div');
@@ -54,7 +54,7 @@ class CategoryUI {
 
         categoryContainer.append(categoryName, categoryList, createTask);
 
-        CONTAINER_DIV.appendChild(categoryContainer)
+        MAIN_UI_DIV.appendChild(categoryContainer)
     } 
 
     static addSideBarLink = (category) => {
