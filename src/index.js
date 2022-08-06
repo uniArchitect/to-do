@@ -23,6 +23,7 @@ NEW_CATEGORY_BTN.addEventListener('click', () => {
 
 // Event - Append create Category
 // Note: Event listener has to work off the parent element of the form
+// Note: Containers may need to be reorganized so that container and sidebar elements do not overlap
 document.querySelector('.custom-categories').addEventListener('submit', (e) => {
 
     e.preventDefault();
@@ -34,6 +35,8 @@ document.querySelector('.custom-categories').addEventListener('submit', (e) => {
     CategoryUI.addCategoryContainer(category);
 
     CategoryUI.addSideBarLink(category);
+
+    // Hide input after submit
 })
 
 // Event - Close Task Form when click 'Close'
