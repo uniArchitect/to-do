@@ -66,8 +66,6 @@ document.querySelector('.task-form-field').addEventListener('submit', (e) => {
 
     e.preventDefault();
 
-    // Define child element of main-UI in a variable
-
     // const taskName is input field value
     const taskName = document.querySelector('#name').value;
 
@@ -89,10 +87,14 @@ document.querySelector('.task-form-field').addEventListener('submit', (e) => {
     TASK_FORM_DIV.style.display = 'none';
 })
 
+// Event - Switch categories from sidebar link
+
 
 // Event - Close Task Form when click 'Close'
 CLOSE_TASK_BTN.addEventListener('click', () => {
     TASK_FORM_DIV.style.display = 'none';
+
+    TaskUI.clearTaskForm();
 })
 
 // Feature - Each category created is a tab that will change the main-UI div element

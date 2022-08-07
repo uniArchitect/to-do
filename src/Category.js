@@ -67,6 +67,10 @@ class CategoryUI {
 
         sideBarLink.classList.add(`${category.name}-category`);
 
+        // setAttribute href='#', id= ${category.name}-link 
+        sideBarLink.setAttribute('href', '#')
+        sideBarLink.setAttribute('id', `${category.name}-link`)
+
         sideBarLink.innerHTML = `${category.name}`;
 
         SIDEBAR_DIV.appendChild(sideBarLink);
