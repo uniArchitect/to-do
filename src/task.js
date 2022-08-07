@@ -12,41 +12,35 @@ export default class Task {
 // Event - Add task to list when form is filled out and submitted
 
 class TaskUI {
-    // Event - Add information for Task
-    static addTask(Task) {
-        const taskList = document.querySelector('.task-list');
+    // Event - Append task argument to ${category.name}-list of current category shown in main-UI container div
+    
+    static addTask(task, category) {
+
+        // Note: How to specify which category object to append to? - the displayed category container
+        const categoryList = document.querySelector(`.${category.name}-list`);
 
         // Creates task div element
         const taskObject = document.createElement('div');
-            // const taskName = document.createElement('div');
-            // const taskDescription = document.createElement('div')
-            // const taskChecklist = document.createElement('div');
-            // const taskDueDate = document.createElement('div');
+            // taskCheckBox may need to be an input element for checkbox
+            const taskCheckBox = document.createElement('div');    
+            const taskName = document.createElement('div');
             const taskPriority = document.createElement('button');
-            // const taskNotes = document.createElement('div');
 
-        taskObject.classList.add('task-object');
-            // taskName.classList.add('task-name');
-            // taskDescription.add('task-description');
-            // taskChecklist.add('task-checklist');
-            // taskDueDate.add('task-due-date');
-            taskPriority.add('task-priority');
-            // taskNotes.add('task-notes');
+        taskObject.classList.add(`${task.name}-object`);
+            taskCheckBox.classList.add(`${task.name}-checklist`);    
+            taskName.classList.add(`${task.name}-name'`);
+            taskPriority.classList.add(`${task.name}-priority`);
 
-        taskObject.innerHTML = `
-        <h3>${Task.name}</h3>
-        <p>${Task.dueDate}</p>
-        <p>${Task.description}</p>
-        <p>${Task.notes}</p>
-        <p>${Task.checklist}</p>
-        `
-
+        taskObject.append(taskCheckBox, taskName, taskPriority)
+        
+        // Set inner HTML elements shown on task element
+        taskName.innerHTML = `<h3>${Task.name}</h3>`
         taskPriority.innerHTML = 'PRIORITY'
 
-        taskList.appendChild(taskObject);
-        
-        taskObject.appendChild(taskPriority);
+        categoryList.appendChild(taskObject);
     }
+
+    // Feature - Show task information when ('a') link is clicked
 
     // Event - Remove task
 

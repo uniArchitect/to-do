@@ -37,7 +37,6 @@ class CategoryUI {
 
     static addCategoryContainer = (category) => {
         const MAIN_UI_DIV = document.querySelector('.main-UI');
-        // MAIN - UI should be an array
 
         // Create - HTML element for main category list
         const categoryContainer = document.createElement('div');

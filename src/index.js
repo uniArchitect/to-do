@@ -1,15 +1,14 @@
 import './styles.css';
-import Task from './task.js';
+import Task, { TaskUI } from './task.js';
 import Category, { CategoryUI } from './Category';
 
 // GLOBAL SCOPE
 const TASK_FORM_DIV = document.querySelector('.task-form-background')
-const CREATE_TASK_BTN = document.querySelector('.task-create')
 const CLOSE_TASK_BTN = document.querySelector('.close-task-form')
 const NEW_CATEGORY_BTN = document.querySelector('.create-category')
 
 // Event - Open Task Form when click on 'CREATE A TASK'
-CREATE_TASK_BTN.addEventListener('click', () => {
+document.querySelector('.main-UI').addEventListener('click', () => {
     TASK_FORM_DIV.style.display = 'block';
 })
 
@@ -29,7 +28,6 @@ NEW_CATEGORY_BTN.addEventListener('click', () => {
         CATEGORY_FORM.style.display = 'block';
         NEW_CATEGORY_BTN.style.display = 'none';
     }
-
 })
 
 // Event - Append create Category
@@ -59,6 +57,30 @@ document.querySelector('.create-category-container').addEventListener('submit', 
     // New category button reappears
     NEW_CATEGORY_BTN.style.display = 'block';
 })
+
+// addTaskBtn.eventListener ('submit') => 
+document.querySelector('.task-form-background').addEventListener('submit', (e) => {
+
+    e.preventDefault();
+
+    // const taskName is input field value
+    const taskName = document.querySelector('#name').value;
+
+    // const dueDate is input field value
+    const dueDate = document.querySelector('#due-date').value;
+
+    // const taskDescription is input field value
+    const taskDescription = document.querySelector('#description').value;
+
+    const task = new Task(taskName, dueDate, taskDescription);
+
+    // TaskUI.function(task, category) - append task object to task list div element
+    TaskUI.addTask(task, category);
+
+    // Set class task-form-background display to 'none'
+    TASK_FORM_DIV.style.display = 'none';
+})
+
 
 // Event - Close Task Form when click 'Close'
 CLOSE_TASK_BTN.addEventListener('click', () => {
