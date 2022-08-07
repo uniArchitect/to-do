@@ -16,20 +16,20 @@
                         <label for="name">
                             Task Name
                         </label>
-                        <input type="text" id="name" name="task-name">
+                        <input required type="text" id="name" name="task-name">
                     </li>
                     <li>
                         <label for="due-date">
                             <!-- This should be a calendar element later -->
                             Due Date
                         </label>
-                        <input type="text" id="due-date" name="task-due-date">
+                        <input required type="text" id="due-date" name="task-due-date">
                     </li>
                     <li>
                         <label for="description">
                             Task Description
                         </label>
-                        <input type="text" id="description" name="task-description">
+                        <input required type="text" id="description" name="task-description">
                     </li>
                     <li>
                         <input type="submit" id="task-add" value="Add Task">
@@ -41,7 +41,8 @@
             </form>
         </aside>
         <!-- Task Display will hide when a category is selected -->
-        <div class="main-UI">    
+        <div class="main-UI">   
+             <!--Possibly replace with something else in final product to indicate adding a category through the sidebar  -->
             <div class="task-display" style="display: block;">
                 <div class="task-header">
                     TASK HEADER
