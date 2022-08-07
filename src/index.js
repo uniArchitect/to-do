@@ -9,7 +9,7 @@ const NEW_CATEGORY_BTN = document.querySelector('.create-category')
 
 // Event - Open Task Form when click on 'CREATE A TASK'
 // BUG: All div area will reveal task form when clicked
-document.querySelector('.main-UI').addEventListener('click', () => {
+document.querySelector('#task-create').addEventListener('click', () => {
     TASK_FORM_DIV.style.display = 'block';
 })
 
