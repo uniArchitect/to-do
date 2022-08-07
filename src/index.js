@@ -56,12 +56,16 @@ document.querySelector('.create-category-container').addEventListener('submit', 
 
     // New category button reappears
     NEW_CATEGORY_BTN.style.display = 'block';
+
+    return category
 })
 
 // addTaskBtn.eventListener ('submit') => 
 document.querySelector('.task-form-background').addEventListener('submit', (e) => {
 
     e.preventDefault();
+
+    // Define child element of main-UI in a variable
 
     // const taskName is input field value
     const taskName = document.querySelector('#name').value;
@@ -75,7 +79,7 @@ document.querySelector('.task-form-background').addEventListener('submit', (e) =
     const task = new Task(taskName, dueDate, taskDescription);
 
     // TaskUI.function(task, category) - append task object to task list div element
-    TaskUI.addTask(task, category);
+    TaskUI.addTask(task);
 
     // Set class task-form-background display to 'none'
     TASK_FORM_DIV.style.display = 'none';

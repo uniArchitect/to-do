@@ -14,22 +14,32 @@ export default class Task {
 class TaskUI {
     // Event - Append task argument to ${category.name}-list of current category shown in main-UI container div
     
-    static addTask(task, category) {
+    static addTask(task) {
 
         // Note: How to specify which category object to append to? - the displayed category container
-        const categoryList = document.querySelector(`.${category.name}-list`);
+        const categoryChildren = document.querySelector('.main-UI').children;
+        const categoryContainerArray = [...categoryChildren];
 
-        // Creates task div element
-        const taskObject = document.createElement('div');
+        // Filter out the child element with display 'block'
+        const visibleCategory = categoryContainerArray.filter(Element => Element.style.display == 'block');
+        // console.log(visibleCategory);
+
+        // element[] specified [0] array element to be HTML element - Select ul element of category HTML element
+        const categoryList = visibleCategory[0].querySelector('ul');
+
+        // Creates task li element
+        const taskObject = document.createElement('li');
             // taskCheckBox may need to be an input element for checkbox
             const taskCheckBox = document.createElement('div');    
             const taskName = document.createElement('div');
             const taskPriority = document.createElement('button');
 
-        taskObject.classList.add(`${task.name}-object`);
-            taskCheckBox.classList.add(`${task.name}-checklist`);    
-            taskName.classList.add(`${task.name}-name'`);
-            taskPriority.classList.add(`${task.name}-priority`);
+        taskObject.classList.add('task-object')
+
+        taskObject.setAttribute('id', `${task.name}-object`);
+            taskCheckBox.setAttribute('id', `${task.name}-checklist`);    
+            taskName.setAttribute('id', `${task.name}-name'`);
+            taskPriority.setAttribute('id', `${task.name}-priority`);
 
         taskObject.append(taskCheckBox, taskName, taskPriority)
         
