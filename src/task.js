@@ -29,16 +29,22 @@ class TaskUI {
 
         // Creates task li element
         const taskObject = document.createElement('li');
-            // taskCheckBox may need to be an input element for checkbox
-            const taskCheckBox = document.createElement('div');    
-            const taskName = document.createElement('div');
+            const taskCheckBoxLabel = document.createElement('label')
+                const taskCheckBox = document.createElement('input');    
+        // Feature - Show task information when ('a') link is clicked
+            const taskName = document.createElement('a');
             const taskPriority = document.createElement('button');
 
         taskObject.classList.add('task-object')
 
         taskObject.setAttribute('id', `${task.name}-object`);
-            taskCheckBox.setAttribute('id', `${task.name}-checklist`);    
+            taskCheckBoxLabel.setAttribute('for', 'accept');    
+                taskCheckBox.setAttribute('type', 'checkbox');
+                taskCheckBox.setAttribute('class', `${task.name}-checklist`);   
+                taskCheckBox.setAttribute('id', 'accept'); 
             taskName.setAttribute('id', `${task.name}-name'`);
+                // setAttribute href='#', id= ${category.name}-link 
+                taskName.setAttribute('href', '#')
             taskPriority.setAttribute('id', `${task.name}-priority`);
 
         taskObject.append(taskCheckBox, taskName, taskPriority)
@@ -56,8 +62,6 @@ class TaskUI {
         document.querySelector('#due-date').value = '';
         document.querySelector('#description').value = '';
     }
-
-    
 
     // Feature - Show task information when ('a') link is clicked
 
