@@ -4,7 +4,7 @@ import Category, { CategoryUI } from './Category';
 
 // GLOBAL SCOPE
 const TASK_FORM_DIV = document.querySelector('.task-form-background')
-const CLOSE_TASK_BTN = document.querySelector('.close-task-form')
+const CLOSE_TASK_BTN = document.querySelector('#close-task-form')
 const NEW_CATEGORY_BTN = document.querySelector('.create-category')
 
 // Event - Open Task Form when click on 'CREATE A TASK'
@@ -61,8 +61,8 @@ document.querySelector('.create-category-container').addEventListener('submit', 
     return category
 })
 
-// addTaskBtn.eventListener ('submit') => 
-document.querySelector('.task-form-background').addEventListener('submit', (e) => {
+// Create a Task Button - addTaskBtn.eventListener ('submit') => 
+document.querySelector('.task-form-field').addEventListener('submit', (e) => {
 
     e.preventDefault();
 
@@ -81,6 +81,9 @@ document.querySelector('.task-form-background').addEventListener('submit', (e) =
 
     // TaskUI.function(task, category) - append task object to task list div element
     TaskUI.addTask(task);
+
+    // Clear input fields
+    TaskUI.clearTaskForm();
 
     // Set class task-form-background display to 'none'
     TASK_FORM_DIV.style.display = 'none';

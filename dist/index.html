@@ -34,6 +34,7 @@
                     <li>
                         <input type="submit" id="task-add" value="Add Task">
                     </li>
+                    <!-- BUG: Edit functionality to close and not submit form -->
                     <button id="close-task-form">
                         Close 
                     </button>
@@ -58,12 +59,10 @@
         <div class="sidebar">
             <ul class="pinned-categories">
                 PINNED CATEGORIES
-                <!-- JS function, Click on new category - Append a new li element -->
             </ul>
             <ul class="custom-categories">
                 CUSTOM CATEGORIES
             </ul>
-            <!-- Button and category input should be in the same div parent element -->
             <div class="create-category-container">
                 <button class="create-category">
                     NEW CATEGORY

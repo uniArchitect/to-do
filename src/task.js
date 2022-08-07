@@ -50,6 +50,15 @@ class TaskUI {
         categoryList.appendChild(taskObject);
     }
 
+    // Event - Clear task form field
+    static clearTaskForm() {
+        document.querySelector('#name').value = '';
+        document.querySelector('#due-date').value = '';
+        document.querySelector('#description').value = '';
+    }
+
+    
+
     // Feature - Show task information when ('a') link is clicked
 
     // Event - Remove task
