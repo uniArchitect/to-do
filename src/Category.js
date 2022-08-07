@@ -90,6 +90,27 @@ class CategoryUI {
         // current container that was created style display to block
         currentContainer.style.display = 'block';
     }
+
+    // Switch category from sidebar link
+    static switchCategoryContainer = (link) => {
+        // All children elements in main-UI container div are pushed into an array
+        const otherContainers = document.querySelector('.main-UI').children;
+        const categoryContainerArray = [...otherContainers];
+
+        // get currentContainer
+        // Note: get class name replace 'category' and replace with 'display' to grab coinciding container
+        // const linkClass = link.classList.replace('category', 'display');
+        const linkClass = link.className.replace('category', 'display');
+        // returns 'catname-display'
+
+        const currentContainer = document.querySelector(`.${linkClass}`);
+
+        // Each children element in the array set style display to none
+        categoryContainerArray.forEach(element => element.style.display = 'none');
+
+        // current container that was created style display to block
+        currentContainer.style.display = 'block';
+    }
 }
 
 export { CategoryUI }

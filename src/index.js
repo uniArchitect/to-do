@@ -88,7 +88,13 @@ document.querySelector('.task-form-field').addEventListener('submit', (e) => {
 })
 
 // Event - Switch categories from sidebar link
+document.querySelector('.custom-categories').addEventListener('click', (e) => {
 
+    // console.log(e.target);
+
+    // function CategoryUI.switchCategory(category) - existing cat container display = none, new cat container display = block
+    CategoryUI.switchCategoryContainer(e.target);
+})
 
 // Event - Close Task Form when click 'Close'
 CLOSE_TASK_BTN.addEventListener('click', () => {
