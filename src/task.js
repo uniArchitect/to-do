@@ -50,7 +50,7 @@ class TaskUI {
         taskObject.append(taskCheckBox, taskName, taskPriority)
         
         // Set inner HTML elements shown on task element
-        taskName.innerHTML = `<h3>${Task.name}</h3>`
+        taskName.innerHTML = `<h3>${task.name}</h3>`
         taskPriority.innerHTML = 'PRIORITY'
 
         categoryList.appendChild(taskObject);
@@ -63,11 +63,39 @@ class TaskUI {
         document.querySelector('#description').value = '';
     }
 
-    // Feature - Show task information when ('a') link is clicked
+    // Feature - Create task information when ('a') link is clicked
+    // Note: index.js event listener 'click'
+    static createTaskInfo = (task) => {
+        const TASK_ASIDE = document.querySelector('.task-info')
+        
+        // Create div element
+        const taskInfo = document.createElement('div');
+
+        taskInfo.classList.add(`${task.name}-info`);
+
+        // Show object properties with innerHTML
+        taskInfo.innerHTML = `
+        <input>${task.name}</input>
+        <p>${task.dueDate}</p>
+        <p>${task.description}</p>
+        <div>${task.priority}</div>
+        <input>${task.notes}</input>
+        <div>${task.checklist}</div>
+        `
+        TASK_ASIDE.appendChild(taskInfo);
+        taskInfo.style.display = 'none';
+    }
+
+    // Event - Show task information
+    static showTaskInfo = (task) => {
+        const taskInfo = document.querySelector(`.${task.name}-info`)
+
+        taskInfo.style.display = 'block';
+    }
 
     // Event - Remove task
 
-    // Event - Complete a task (Sets its style to be shown as complete)
+    // Event - Complete a task (Sets its style to be shown as complete) when checkbox is checked off
 }
 
 export { TaskUI }
