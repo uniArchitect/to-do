@@ -63,10 +63,10 @@ class TaskUI {
         document.querySelector('#description').value = '';
     }
 
-    // Feature - Create task information when ('a') link is clicked
+    // Create task info when task is created from task form submission
     // Note: index.js event listener 'click'
     static createTaskInfo = (task) => {
-        const TASK_ASIDE = document.querySelector('.task-info')
+        const TASK_INFO_DIV = document.querySelector('.task-info');
         
         // Create div element
         const taskInfo = document.createElement('div');
@@ -75,18 +75,20 @@ class TaskUI {
 
         // Show object properties with innerHTML
         taskInfo.innerHTML = `
-        <input>${task.name}</input>
+        <input type="text" value="${task.name}"></input>
         <p>${task.dueDate}</p>
-        <p>${task.description}</p>
+        <input type="text" value="${task.description}"></input>
         <div>${task.priority}</div>
         <input>${task.notes}</input>
         <div>${task.checklist}</div>
         `
-        TASK_ASIDE.appendChild(taskInfo);
-        taskInfo.style.display = 'none';
+        TASK_INFO_DIV.appendChild(taskInfo);
+        TASK_INFO_DIV.style.display = 'flex';
+
+        // taskInfo.style.display = 'none';
     }
 
-    // Event - Show task information
+    // Feature - Show task information when ('a') link is clicked
     static showTaskInfo = (task) => {
         const taskInfo = document.querySelector(`.${task.name}-info`)
 

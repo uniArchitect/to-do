@@ -5,6 +5,7 @@ import Category, { CategoryUI } from './Category';
 // GLOBAL SCOPE
 const MAIN_UI_DIV = document.querySelector('.main-UI');
 const TASK_FORM_DIV = document.querySelector('.task-form-background');
+// const TASK_INFO_DIV = document.querySelector('.task-info');
 const CLOSE_TASK_BTN = document.querySelector('#close-task-form');
 const NEW_CATEGORY_BTN = document.querySelector('#create-category');
 
@@ -110,6 +111,3 @@ CLOSE_TASK_BTN.addEventListener('click', () => {
 
     TaskUI.clearTaskForm();
 })
-
-// Feature - Each category created is a tab that will change the main-UI div element
-// Note: Ref Restaurant Page to change display of 'category-container' (may look like ${category}-container based on category class)
