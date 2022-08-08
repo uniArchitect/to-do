@@ -47,7 +47,8 @@ class CategoryUI {
         categoryContainer.classList.add(`${category.name}-display`);
         categoryName.classList.add(`${category.name}-name`);
         categoryList.classList.add(`${category.name}-list`);
-        createTask.setAttribute('id', 'task-create');
+        createTask.classList.add('task-create');
+        // createTask.setAttribute('id', 'task-create');
 
         categoryName.innerHTML = `${category.name}`;
         createTask.innerHTML = 'CREATE A TASK';

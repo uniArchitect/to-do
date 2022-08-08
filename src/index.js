@@ -3,15 +3,10 @@ import Task, { TaskUI } from './task.js';
 import Category, { CategoryUI } from './Category';
 
 // GLOBAL SCOPE
-const TASK_FORM_DIV = document.querySelector('.task-form-background')
-const CLOSE_TASK_BTN = document.querySelector('#close-task-form')
-const NEW_CATEGORY_BTN = document.querySelector('.create-category')
-
-// Event - Open Task Form when click on 'CREATE A TASK'
-// BUG: All div area will reveal task form when clicked
-document.querySelector('#task-create').addEventListener('click', () => {
-    TASK_FORM_DIV.style.display = 'block';
-})
+const MAIN_UI_DIV = document.querySelector('.main-UI');
+const TASK_FORM_DIV = document.querySelector('.task-form-background');
+const CLOSE_TASK_BTN = document.querySelector('#close-task-form');
+const NEW_CATEGORY_BTN = document.querySelector('#create-category');
 
 // Event - Create input field for new category
 // Note: Should disappear when form to create new category is created
@@ -97,6 +92,16 @@ document.querySelector('.custom-categories').addEventListener('click', (e) => {
 
     // function CategoryUI.switchCategory(category) - existing cat container display = none, new cat container display = block
     CategoryUI.switchCategoryContainer(e.target);
+})
+
+// Event - Open Task Form when click on 'CREATE A TASK'
+// BUG: querySelector for ID only works for first instance
+MAIN_UI_DIV.addEventListener('click', (e) => {
+    console.log(e.target);
+    
+    if (e.target.classList.contains('task-create')) {
+        TASK_FORM_DIV.style.display = 'block';
+    };
 })
 
 // Event - Close Task Form when click 'Close'
