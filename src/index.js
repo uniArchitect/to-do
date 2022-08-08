@@ -80,6 +80,9 @@ document.querySelector('.task-form-field').addEventListener('submit', (e) => {
     // TaskUI.function(task, category) - append task object to task list div element
     TaskUI.addTask(task);
 
+    // Create task info element
+    TaskUI.createTaskInfo(task);
+
     // Clear input fields
     TaskUI.clearTaskForm();
 
