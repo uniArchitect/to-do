@@ -92,7 +92,7 @@ document.querySelector('.custom-categories').addEventListener('click', (e) => {
     console.log(e.target);
 
     // function CategoryUI.switchCategory(category) - existing cat container display = none, new cat container display = block
-    if (e.target.classList.contains('category')) {
+    if (e.target.className.includes('category')) {
         CategoryUI.switchCategoryContainer(e.target);
     }
 })
@@ -100,20 +100,14 @@ document.querySelector('.custom-categories').addEventListener('click', (e) => {
 // Event - Show task info div when a is clicked (addeventlistener)
 MAIN_UI_DIV.addEventListener('click', (e) => {
 
-    // console.log(e.target);
-
-    if (e.target.classList.contains('name')) {
+    // .contains needs to be exact? Do task items need to have generic class names and more specific names as ids?
+    if (e.target.className.includes('name')) {
         TaskUI.showTaskInfo(e.target);
     }
-
-    // TaskUI.showTaskInfo(e.target);
-
 })
 
 // Event - Open Task Form when click on 'CREATE A TASK'
-// BUG: querySelector for ID only works for first instance
 MAIN_UI_DIV.addEventListener('click', (e) => {
-    // console.log(e.target);
     
     if (e.target.classList.contains('task-create')) {
         TASK_FORM_DIV.style.display = 'block';
@@ -123,7 +117,7 @@ MAIN_UI_DIV.addEventListener('click', (e) => {
 // Event - Delete task from list
 MAIN_UI_DIV.addEventListener('click', (e) => {
 
-    if (e.target.classList.contains('delete')) {
+    if (e.target.classList.contains('task-delete')) {
         TaskUI.removeTask(e.target);
     }
 

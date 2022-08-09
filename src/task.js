@@ -48,7 +48,7 @@ class TaskUI {
                 // setAttribute href='#', id= ${category.name}-link 
                 taskName.setAttribute('href', '#')
             taskPriority.setAttribute('id', `${task.name}-priority`);
-            taskDelete.classList.add(`${task.name}-delete`);
+            taskDelete.classList.add('task-delete');
 
         taskObject.append(taskCheckBox, taskName, taskPriority, taskDelete)
         
@@ -119,9 +119,11 @@ class TaskUI {
 
     // Event - Remove task
     static removeTask(task) {
-        if(task.classList.contains('delete')) {
-            task.parentElement.remove();
-        }
+        
+        task.parentElement.remove();
+
+        // Need to also remove from aside element
+        
     }
 
     // Event - Complete a task (Sets its style to be shown as complete) when checkbox is checked off

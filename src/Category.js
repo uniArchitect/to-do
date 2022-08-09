@@ -111,6 +111,8 @@ class CategoryUI {
 
         // current container that was created style display to block
         currentContainer.style.display = 'block';
+
+        // aside element style display = 'none'
     }
 }
 
