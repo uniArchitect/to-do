@@ -34,6 +34,7 @@ class TaskUI {
         // Feature - Show task information when ('a') link is clicked
             const taskName = document.createElement('a');
             const taskPriority = document.createElement('button');
+            const taskDelete = document.createElement('button');
 
         taskObject.classList.add('task-object')
 
@@ -47,12 +48,18 @@ class TaskUI {
                 // setAttribute href='#', id= ${category.name}-link 
                 taskName.setAttribute('href', '#')
             taskPriority.setAttribute('id', `${task.name}-priority`);
+            taskDelete.classList.add(`${task.name}-delete`);
 
-        taskObject.append(taskCheckBox, taskName, taskPriority)
+        taskObject.append(taskCheckBox, taskName, taskPriority, taskDelete)
         
         // Set inner HTML elements shown on task element
         taskName.innerHTML = `${task.name}`
         taskPriority.innerHTML = 'PRIORITY'
+        taskDelete.innerHTML = `
+        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+        `
 
         categoryList.appendChild(taskObject);
     }
@@ -109,8 +116,6 @@ class TaskUI {
         TASK_INFO_DIV.style.display = 'block';
         currentTask.style.display = 'block';
     }
-
-    // Feature - switchTaskInfo
 
     // Event - Remove task
 
