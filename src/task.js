@@ -61,6 +61,10 @@ class TaskUI {
         </svg>
         `
 
+        // if (document.querySelector('.main-UI').childElementCount == '1') {
+
+        // }
+
         categoryList.appendChild(taskObject);
     }
 
