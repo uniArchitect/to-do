@@ -89,16 +89,25 @@ document.querySelector('.task-form-field').addEventListener('submit', (e) => {
 // Event - Switch categories from sidebar link
 document.querySelector('.custom-categories').addEventListener('click', (e) => {
 
+    console.log(e.target);
+
     // function CategoryUI.switchCategory(category) - existing cat container display = none, new cat container display = block
     if (e.target.classList.contains('category')) {
         CategoryUI.switchCategoryContainer(e.target);
     }
 })
 
+// Event - Show task info div when a is clicked (addeventlistener)
+MAIN_UI_DIV.addEventListener('click', (e) => {
+
+    TaskUI.showTaskInfo(e.target);
+
+})
+
 // Event - Open Task Form when click on 'CREATE A TASK'
 // BUG: querySelector for ID only works for first instance
 MAIN_UI_DIV.addEventListener('click', (e) => {
-    console.log(e.target);
+    // console.log(e.target);
     
     if (e.target.classList.contains('task-create')) {
         TASK_FORM_DIV.style.display = 'block';

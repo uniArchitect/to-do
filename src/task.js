@@ -42,7 +42,8 @@ class TaskUI {
                 taskCheckBox.setAttribute('type', 'checkbox');
                 taskCheckBox.setAttribute('class', `${task.name}-checklist`);   
                 taskCheckBox.setAttribute('id', 'accept'); 
-            taskName.setAttribute('id', `${task.name}-name'`);
+            taskName.classList.add(`${task.name}-name`);
+            taskName.setAttribute('id', `${task.name}-name`);
                 // setAttribute href='#', id= ${category.name}-link 
                 taskName.setAttribute('href', '#')
             taskPriority.setAttribute('id', `${task.name}-priority`);
@@ -50,7 +51,7 @@ class TaskUI {
         taskObject.append(taskCheckBox, taskName, taskPriority)
         
         // Set inner HTML elements shown on task element
-        taskName.innerHTML = `<h3>${task.name}</h3>`
+        taskName.innerHTML = `${task.name}`
         taskPriority.innerHTML = 'PRIORITY'
 
         categoryList.appendChild(taskObject);
@@ -83,17 +84,33 @@ class TaskUI {
         <div>${task.checklist}</div>
         `
         TASK_INFO_DIV.appendChild(taskInfo);
-        TASK_INFO_DIV.style.display = 'flex';
+        // TASK_INFO_DIV.style.display = 'flex';
 
-        // taskInfo.style.display = 'none';
+        TASK_INFO_DIV.style.display = 'none';
     }
 
     // Feature - Show task information when ('a') link is clicked
     static showTaskInfo = (task) => {
-        const taskInfo = document.querySelector(`.${task.name}-info`)
+        
+        const TASK_INFO_DIV = document.querySelector('.task-info');
+        let taskClass = task.className.replace('name', 'info');
 
-        taskInfo.style.display = 'block';
+        // All children elements in task-info container div are pushed into an array
+        const otherTasks = document.querySelector('.task-info').children;
+        const taskContainerArray = [...otherTasks];
+
+        console.log(taskClass);
+
+        // Each children element in the array set style display to none
+        taskContainerArray.forEach(element => element.style.display = 'none');
+
+        let currentTask = document.querySelector(`.${taskClass}`);
+
+        TASK_INFO_DIV.style.display = 'block';
+        currentTask.style.display = 'block';
     }
+
+    // Feature - switchTaskInfo
 
     // Event - Remove task
 
