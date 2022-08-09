@@ -84,7 +84,7 @@ class TaskUI {
         // Show object properties with innerHTML
         taskInfo.innerHTML = `
         <input type="text" value="${task.name}"></input>
-        <p>${task.dueDate}</p>
+        <input required type="date" id="task-info-date" name="task-info-date" value="${task.dueDate}">
         <input type="text" value="${task.description}"></input>
         <div>${task.priority}</div>
         <input>${task.notes}</input>
@@ -123,7 +123,7 @@ class TaskUI {
         task.parentElement.remove();
 
         // Need to also remove from aside element
-        
+
     }
 
     // Event - Complete a task (Sets its style to be shown as complete) when checkbox is checked off
