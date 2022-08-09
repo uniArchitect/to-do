@@ -122,7 +122,12 @@ class TaskUI {
     }
 
     // Event - Remove task
-
+    static removeTask(task) {
+        if(task.classList.contains('delete')) {
+            task.parentElement.remove();
+        }
+    }
+    
     // Event - Complete a task (Sets its style to be shown as complete) when checkbox is checked off
 }
 

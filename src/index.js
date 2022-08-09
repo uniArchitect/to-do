@@ -114,6 +114,8 @@ MAIN_UI_DIV.addEventListener('click', (e) => {
     };
 })
 
+// Event - Delete task from list
+
 // Event - Close Task Form when click 'Close'
 CLOSE_TASK_BTN.addEventListener('click', () => {
     TASK_FORM_DIV.style.display = 'none';
