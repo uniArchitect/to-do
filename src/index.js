@@ -100,7 +100,13 @@ document.querySelector('.custom-categories').addEventListener('click', (e) => {
 // Event - Show task info div when a is clicked (addeventlistener)
 MAIN_UI_DIV.addEventListener('click', (e) => {
 
-    TaskUI.showTaskInfo(e.target);
+    // console.log(e.target);
+
+    if (e.target.classList.contains('name')) {
+        TaskUI.showTaskInfo(e.target);
+    }
+
+    // TaskUI.showTaskInfo(e.target);
 
 })
 
@@ -111,10 +117,17 @@ MAIN_UI_DIV.addEventListener('click', (e) => {
     
     if (e.target.classList.contains('task-create')) {
         TASK_FORM_DIV.style.display = 'block';
-    };
+    }
 })
 
 // Event - Delete task from list
+MAIN_UI_DIV.addEventListener('click', (e) => {
+
+    if (e.target.classList.contains('delete')) {
+        TaskUI.removeTask(e.target);
+    }
+
+})
 
 // Event - Close Task Form when click 'Close'
 CLOSE_TASK_BTN.addEventListener('click', () => {

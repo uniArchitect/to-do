@@ -61,10 +61,6 @@ class TaskUI {
         </svg>
         `
 
-        // if (document.querySelector('.main-UI').childElementCount == '1') {
-
-        // }
-
         categoryList.appendChild(taskObject);
     }
 
@@ -127,7 +123,7 @@ class TaskUI {
             task.parentElement.remove();
         }
     }
-    
+
     // Event - Complete a task (Sets its style to be shown as complete) when checkbox is checked off
 }
 
