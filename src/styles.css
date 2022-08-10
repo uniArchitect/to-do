@@ -83,15 +83,13 @@ body, html {
                         text-decoration: none;
                     }
 
-                    #task-name:hover {
-                        color: #4056A1;
-                    }
-
                     #task-name:visited {
                         color: inherit;
                     }
 
-                    
+                    #task-name:hover {
+                        color: #4056A1;
+                    }                    
 
         .sidebar {
             background: #474b4f;
@@ -107,12 +105,20 @@ body, html {
             .custom-categories {
                 display: flex;
                 flex-direction: column;
+                margin: 0%;
                 padding: 1em;
+                gap: 0.25em;
             }
 
                 #category-link {
                     text-decoration: none;
                     color: inherit;
+                    padding: .5em;
+                }
+
+                #category-link:hover {
+                    background: #4056A1;
+                    border-radius: 0.5em;
                 }
 
             .create-category-container {

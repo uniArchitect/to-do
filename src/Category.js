@@ -69,11 +69,10 @@ class CategoryUI {
         const sideBarLink = document.createElement('a');
 
         sideBarLink.classList.add(`${category.name}-category`);
-        sideBarLink.setAttribute('id', 'category-link');
 
-        // setAttribute href='#', id= ${category.name}-link 
-        sideBarLink.setAttribute('href', '#')
-        sideBarLink.setAttribute('id', `${category.name}-link`)
+        // setAttribute href='#', id= category-link 
+        sideBarLink.setAttribute('href', '#');
+        sideBarLink.setAttribute('id', 'category-link');
 
         sideBarLink.innerHTML = `${category.name}`;
 
