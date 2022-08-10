@@ -45,8 +45,10 @@ class CategoryUI {
         const createTask = document.createElement('button');
 
         categoryContainer.classList.add(`${category.name}-display`);
-        categoryName.classList.add(`${category.name}-name`);
-        categoryList.classList.add(`${category.name}-list`);
+        categoryName.classList.add('category-name');
+        categoryName.setAttribute('id', `${category.name}-name`);
+        categoryList.classList.add('category-list');
+        categoryList.setAttribute('id', `${category.name}-list`);
         createTask.classList.add('task-create');
         // createTask.setAttribute('id', 'task-create');
 
