@@ -38,10 +38,10 @@ body, html {
         }
         
         /* Each task-info object should be one unified class (use multiple classes?) */
-        /* task1-info {
+        #task-card {
             display: flex;
             flex-direction: column;
-         */
+        }
 
         .main-UI {
             grid-column: 2 / 3;

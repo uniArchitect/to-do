@@ -47,7 +47,8 @@ class TaskUI {
             taskName.setAttribute('id', `${task.name}-name`);
                 // setAttribute href='#', id= ${category.name}-link 
                 taskName.setAttribute('href', '#')
-            taskPriority.setAttribute('id', `${task.name}-priority`);
+            // taskPriority.setAttribute('id', `${task.name}-priority`);
+            taskPriority.classList.add(`${task.name}-priority`)
             taskDelete.classList.add('task-delete');
 
         taskObject.append(taskCheckBox, taskName, taskPriority, taskDelete)
@@ -80,6 +81,7 @@ class TaskUI {
         const taskInfo = document.createElement('div');
 
         taskInfo.classList.add(`${task.name}-info`);
+        taskInfo.setAttribute('id', 'task-card');
 
         // Show object properties with innerHTML
         taskInfo.innerHTML = `
@@ -114,16 +116,30 @@ class TaskUI {
         let currentTask = document.querySelector(`.${taskClass}`);
 
         TASK_INFO_DIV.style.display = 'block';
-        currentTask.style.display = 'block';
+        currentTask.style.display = 'flex';
     }
 
     // Event - Remove task
     static removeTask(task) {
         
+        // const TASK_INFO_DIV = document.querySelector('.task-info');
+        // This is task-delete
+        let currentElement = document.querySelector(`.${task.className}`);
+        // Should return "'task name'-priority"
+        let prevSibling = currentElement.previousElementSibling;
+        // Replace priority class name with info to match aside li element class
+        let taskClassRemove = prevSibling.className.replace('priority', 'info');
+        
+        // Define the element by class name
+        let removeTaskElement = document.querySelector(`.${taskClassRemove}`);
+
+        // console.log(task.className);
+
+        // Remove task under main-UI
         task.parentElement.remove();
 
         // Need to also remove from aside element
-
+        removeTaskElement.remove();
     }
 
     // Event - Complete a task (Sets its style to be shown as complete) when checkbox is checked off
