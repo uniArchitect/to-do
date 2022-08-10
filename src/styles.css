@@ -100,7 +100,21 @@ body, html {
             border-radius: 0.75em;
         }
 
+            .pinned-categories {
+                padding: 1em;
+            }
+
             .custom-categories {
                 display: flex;
                 flex-direction: column;
+                padding: 1em;
+            }
+
+                #category-link {
+                    text-decoration: none;
+                    color: inherit;
+                }
+
+            .create-category-container {
+                padding: 1em;
             }

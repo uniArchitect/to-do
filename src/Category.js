@@ -69,6 +69,7 @@ class CategoryUI {
         const sideBarLink = document.createElement('a');
 
         sideBarLink.classList.add(`${category.name}-category`);
+        sideBarLink.setAttribute('id', 'category-link');
 
         // setAttribute href='#', id= ${category.name}-link 
         sideBarLink.setAttribute('href', '#')
@@ -92,6 +93,8 @@ class CategoryUI {
 
         // current container that was created style display to block
         currentContainer.style.display = 'block';
+
+        // Hide aside class
     }
 
     // Switch category from sidebar link

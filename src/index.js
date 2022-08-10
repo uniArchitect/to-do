@@ -100,7 +100,7 @@ document.querySelector('.custom-categories').addEventListener('click', (e) => {
 // Event - Show task info div when a is clicked (addeventlistener)
 MAIN_UI_DIV.addEventListener('click', (e) => {
 
-    // .contains needs to be exact? Do task items need to have generic class names and more specific names as ids?
+    // showTaskInfo should be able to toggle on and off when clicking the same link
     if (e.target.className.includes('name')) {
         TaskUI.showTaskInfo(e.target);
     }
