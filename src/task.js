@@ -44,11 +44,12 @@ class TaskUI {
                 taskCheckBox.setAttribute('class', `${task.name}-checklist`);   
                 taskCheckBox.setAttribute('id', 'accept'); 
             taskName.classList.add(`${task.name}-name`);
-            taskName.setAttribute('id', `${task.name}-name`);
+                taskName.setAttribute('id', 'task-name');
                 // setAttribute href='#', id= ${category.name}-link 
-                taskName.setAttribute('href', '#')
+                taskName.setAttribute('href', '#');
             // taskPriority.setAttribute('id', `${task.name}-priority`);
-            taskPriority.classList.add(`${task.name}-priority`)
+            taskPriority.classList.add(`${task.name}-priority`);
+                taskPriority.setAttribute('id', 'task-priority');
             taskDelete.classList.add('task-delete');
 
         taskObject.append(taskCheckBox, taskName, taskPriority, taskDelete)
