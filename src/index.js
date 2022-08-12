@@ -100,6 +100,7 @@ document.querySelector('.custom-categories').addEventListener('click', (e) => {
 // Event - Show task info div when a is clicked (addeventlistener)
 MAIN_UI_DIV.addEventListener('click', (e) => {
 
+    // BUG: when container is clicked, task info appears
     // showTaskInfo should be able to toggle on and off when clicking the same link
     if (e.target.className.includes('name')) {
         TaskUI.showTaskInfo(e.target);

@@ -11,13 +11,26 @@ body, html {
     color: #f8fafc;
 }
 
+ul {
+    list-style: none;
+    padding: none;
+}
+
+    /* Stylize task form and input elements*/
     .task-form-background {
         position: absolute;
         display: none;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
+        background: #474b4f;
+        padding: 1em;
+        border-radius: 1em;
     }
+
+        .task-form-buttons {
+            display: flex;
+        }
 
     .container {
         display: grid;

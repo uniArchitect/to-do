@@ -31,13 +31,15 @@
                         </label>
                         <input required type="text" id="description" name="task-description">
                     </li>
-                    <li>
-                        <input type="submit" id="task-add" value="Add Task">
-                    </li>
-                    <!-- BUG: Edit functionality to close and not submit form -->
-                    <button id="close-task-form">
-                        Close 
-                    </button>
+                    <div class="task-form-buttons">
+                        <li>
+                            <input type="submit" id="task-add" value="Add Task">
+                        </li>
+                        <!-- BUG: Edit functionality to close and not submit form -->
+                        <button id="close-task-form">
+                            Close 
+                        </button>    
+                    </div>
                 </ul>
             </form>
         </aside>
