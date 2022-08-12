@@ -11,18 +11,6 @@ body, html {
     color: #f8fafc;
 }
 
-ul {
-    list-style: none;
-    margin: 0em;
-    padding: 0em;
-}
-
-    li {
-        display: flex;
-        flex-direction: column;
-        row-gap: 0.25em;
-    }
-
     /* Stylize task form and input elements*/
     .task-form-background {
         position: absolute;
@@ -33,13 +21,23 @@ ul {
         background: #474b4f;
         padding: 1em;
         border-radius: 1em;
+        width: 15em;
     }
 
         .task-form {
             display: flex;
             flex-direction: column;
             row-gap: 0.5em;
+            list-style: none;
+            margin: 0em;
+            padding: 0em;
         }
+
+            .task-form-list {
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.25em;
+            }
 
             .task-form-buttons {
                 display: flex;
