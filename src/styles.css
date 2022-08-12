@@ -13,8 +13,15 @@ body, html {
 
 ul {
     list-style: none;
-    padding: none;
+    margin: 0em;
+    padding: 0em;
 }
+
+    li {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.25em;
+    }
 
     /* Stylize task form and input elements*/
     .task-form-background {
@@ -28,9 +35,16 @@ ul {
         border-radius: 1em;
     }
 
-        .task-form-buttons {
+        .task-form {
             display: flex;
+            flex-direction: column;
+            row-gap: 0.5em;
         }
+
+            .task-form-buttons {
+                display: flex;
+                justify-content: space-between;
+            }
 
     .container {
         display: grid;
