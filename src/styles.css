@@ -199,6 +199,11 @@ input:focus {
                     flex-direction: column;
                     row-gap: 0.5em;
                 }    
+
+                    .create-cat-btn-container {
+                        display: flex;
+                        justify-content: space-between;
+                    }
             
                     #category-submit {
                         background: #4056A1;

@@ -10,7 +10,7 @@ const CLOSE_TASK_BTN = document.querySelector('#close-task-form');
 const NEW_CATEGORY_BTN = document.querySelector('#create-category');
 
 // Event - Create input field for new category
-// Note: Should disappear when form to create new category is created
+// Note: Add a cancel button
 NEW_CATEGORY_BTN.addEventListener('click', () => {
     const CREATE_CAT_UL = document.querySelector('.create-category-container')
     const CATEGORY_FORM = document.querySelector('.category-form');
@@ -22,7 +22,7 @@ NEW_CATEGORY_BTN.addEventListener('click', () => {
     } else {
         document.querySelector('#category-input-name').value = '';
 
-        CATEGORY_FORM.style.display = 'block';
+        CATEGORY_FORM.style.display = 'flex';
         NEW_CATEGORY_BTN.style.display = 'none';
     }
 })

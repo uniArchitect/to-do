@@ -16,6 +16,8 @@ class CategoryUI {
         const categoryForm = document.createElement('form')
         const inputField = document.createElement('input')
         const inputSubmit = document.createElement('input')
+        const inputCancel = document.createElement('button')
+        const inputButtonDiv = document.createElement('div')
 
         categoryForm.setAttribute('action', 'index.html')
         categoryForm.setAttribute('method', 'GET')
@@ -30,7 +32,15 @@ class CategoryUI {
         inputSubmit.setAttribute('value', 'Submit')
         // inputSubmit.innerHTML = 'Submit';
 
-        categoryForm.append(inputField, inputSubmit)
+        inputCancel.classList.add('create-category-cancel')
+        inputCancel.innerHTML = 'Cancel'
+
+        inputButtonDiv.classList.add('create-cat-btn-container')
+
+        // Append submit / cancel into separate div element from input field
+        inputButtonDiv.append(inputSubmit, inputCancel)
+
+        categoryForm.append(inputField, inputButtonDiv)
 
         CREATE_CAT_DIV.appendChild(categoryForm)
     }
@@ -53,7 +63,7 @@ class CategoryUI {
         // createTask.setAttribute('id', 'task-create');
 
         categoryName.innerHTML = `${category.name}`;
-        createTask.innerHTML = 'CREATE A TASK';
+        createTask.innerHTML = 'Create A Task';
 
         categoryContainer.append(categoryName, categoryList, createTask);
 
