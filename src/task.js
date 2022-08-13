@@ -89,9 +89,14 @@ class TaskUI {
         <input type="text" value="${task.name}"></input>
         <input required type="date" id="task-info-date" name="task-info-date" value="${task.dueDate}">
         <input type="text" value="${task.description}"></input>
-        <div>${task.priority}</div>
-        <input>${task.notes}</input>
-        <div>${task.checklist}</div>
+        <select class="task-priority">
+            ${task.priority}
+            <option value="High Priority">High Priority</option>
+            <option value="Medium Priority">Medium Priority</option>
+            <option value="Low Priority">Low Priority</option>
+        </select>
+        <input value="Add note">${task.notes}</input>
+        <div class="task-checklist">${task.checklist}</div>
         `
         TASK_INFO_DIV.appendChild(taskInfo);
         // TASK_INFO_DIV.style.display = 'flex';
