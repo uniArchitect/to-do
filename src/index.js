@@ -8,9 +8,9 @@ const TASK_FORM_DIV = document.querySelector('.task-form-background');
 // const TASK_INFO_DIV = document.querySelector('.task-info');
 const CLOSE_TASK_BTN = document.querySelector('#close-task-form');
 const NEW_CATEGORY_BTN = document.querySelector('#create-category');
+// const CAT_CLOSE_BTN = document.querySelector('#create-category-cancel');
 
 // Event - Create input field for new category
-// Note: Add a cancel button
 NEW_CATEGORY_BTN.addEventListener('click', () => {
     const CREATE_CAT_UL = document.querySelector('.create-category-container')
     const CATEGORY_FORM = document.querySelector('.category-form');
@@ -55,6 +55,20 @@ document.querySelector('.create-category-container').addEventListener('submit', 
     NEW_CATEGORY_BTN.style.display = 'block';
 
     return category
+})
+
+document.querySelector('.create-category-container').addEventListener('click', (e) => {
+    
+    const CATEGORY_FORM = document.querySelector('.category-form');
+
+    // Event delegation
+    if(e.target.className == 'create-category-cancel') {
+        // Hide input after submit
+        CATEGORY_FORM.style.display = 'none';
+
+        // New category button reappears
+        NEW_CATEGORY_BTN.style.display = 'block';    
+    }
 })
 
 // Create a Task Button - addTaskBtn.eventListener ('submit') => 

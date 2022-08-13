@@ -33,6 +33,7 @@ class CategoryUI {
         // inputSubmit.innerHTML = 'Submit';
 
         inputCancel.classList.add('create-category-cancel')
+        inputCancel.setAttribute('id', 'create-category-cancel')
         inputCancel.innerHTML = 'Cancel'
 
         inputButtonDiv.classList.add('create-cat-btn-container')
