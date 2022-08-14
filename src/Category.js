@@ -63,7 +63,9 @@ class CategoryUI {
         createTask.classList.add('task-create');
         // createTask.setAttribute('id', 'task-create');
 
-        categoryName.innerHTML = `${category.name}`;
+        // Convert revised category value to original input
+        let categoryOriginal = `${category.name}`.replace('-', ' ');
+        categoryName.innerHTML = categoryOriginal;
         createTask.innerHTML = 'Create A Task';
 
         categoryContainer.append(categoryName, categoryList, createTask);
@@ -85,7 +87,9 @@ class CategoryUI {
         sideBarLink.setAttribute('href', '#');
         sideBarLink.setAttribute('id', 'category-link');
 
-        sideBarLink.innerHTML = `${category.name}`;
+        // Convert revised category value to original input
+        let categoryOriginal = `${category.name}`.replace('-', ' ');
+        sideBarLink.innerHTML = categoryOriginal;
 
         SIDEBAR_DIV.appendChild(sideBarLink);
     }

@@ -35,9 +35,14 @@ document.querySelector('.create-category-container').addEventListener('submit', 
     e.preventDefault();
 
     const CATEGORY_FORM = document.querySelector('.category-form');
-    const name = document.querySelector('#category-input-name').value;
+    let name = document.querySelector('#category-input-name').value;
 
-    const category = new Category(name);
+    console.log(name)
+
+    // value of 'name' to be altered to fit name
+    let nameRevised = name.replace(' ', '-');
+
+    const category = new Category(nameRevised);
 
     // Adds a category container to main-UI
     CategoryUI.addCategoryContainer(category);

@@ -73,7 +73,7 @@ select {
                     background: #4056A1;
                     border: none;
                     color: inherit;
-                    font-size: 1em;
+                    font-size: .75em;
                     font-weight: bold;
                     padding: 0.5em;
                     height: 2.5em;
@@ -84,7 +84,7 @@ select {
                     border: none;
                     border-radius: 5px;
                     color: inherit;
-                    font-size: 1em;
+                    font-size: .75em;
                     font-weight: bold;
                     padding: 0.5em; 
                 }
@@ -94,7 +94,7 @@ select {
                     border: none;
                     border-radius: 5px;
                     color: inherit;
-                    font-size: 1em;
+                    font-size: .75em;
                     font-weight: bold;
                     padding: 0.5em; 
                 }
@@ -226,7 +226,7 @@ select {
                         border: none;
                         border-radius: 5px;
                         color: inherit;
-                        font-size: 1em;
+                        font-size: .75em;
                         font-weight: bold;
                         padding: 0.5em;
                         height: 2.15em; 
