@@ -166,17 +166,18 @@ class TaskUI {
         // define priority variable from task info input
         let taskPriority = document.querySelector('.task-priority');
 
-        console.log(taskPriority);
+        console.log(taskPriority.value);
 
         // let style change if input is high, medium or low priority
         if (taskPriority.value == 'High Priority') {
             // define parent div element class name as a string
             let parentElement = taskPriority.parentElement.className;
-            let parentElementRev = parentElement.className.replace('info', 'object');
-            
+            console.log(parentElement);
+            let parentElementRev = parentElement.replace('info', 'object');
+            console.log(parentElementRev);
             // define task variable in main-UI container
-            let taskObject = document.querySelector(`.${parentElementRev}`)
-
+            let taskObject = document.querySelector(`#${parentElementRev}`)
+            console.log(taskObject);
             taskObject.style.border = '1px solid #F13C20'
         }
     }

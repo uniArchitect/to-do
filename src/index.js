@@ -155,6 +155,7 @@ CLOSE_TASK_BTN.addEventListener('click', () => {
     TaskUI.clearTaskForm();
 })
 
-document.querySelector('.task-info').addEventListener('click', () => {
-    TaskUI.setPriority();
+// Event - Change task border color based on priority
+document.querySelector('.task-info').addEventListener('click', (e) => {
+    TaskUI.setPriority(e.target);
 })
