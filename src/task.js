@@ -159,6 +159,27 @@ class TaskUI {
     }
 
     // Event - Complete a task (Sets its style to be shown as complete) when checkbox is checked off
+
+    // Event - Set style of border when task priority changes
+    static setPriority() {
+
+        // define priority variable from task info input
+        let taskPriority = document.querySelector('.task-priority');
+
+        console.log(taskPriority);
+
+        // let style change if input is high, medium or low priority
+        if (taskPriority.value == 'High Priority') {
+            // define parent div element class name as a string
+            let parentElement = taskPriority.parentElement.className;
+            let parentElementRev = parentElement.className.replace('info', 'object');
+            
+            // define task variable in main-UI container
+            let taskObject = document.querySelector(`.${parentElementRev}`)
+
+            taskObject.style.border = '1px solid #F13C20'
+        }
+    }
 }
 
 export { TaskUI }

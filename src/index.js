@@ -154,3 +154,7 @@ CLOSE_TASK_BTN.addEventListener('click', () => {
 
     TaskUI.clearTaskForm();
 })
+
+document.querySelector('.task-info').addEventListener('click', () => {
+    TaskUI.setPriority();
+})
