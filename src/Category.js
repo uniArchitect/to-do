@@ -10,6 +10,22 @@ export default class Category {
 
 class CategoryUI {
 
+    static defaultCategory = () => {
+        // Pinned category attributes and append to sidebar 
+        const myDayCategory = document.createElement('a');
+        const importantCategory = document.createElement('a');
+
+        myDayCategory.classList.add('pinned-list-item');
+        importantCategory.classList.add('pinned-list-item');
+        myDayCategory.setAttribute('href', '#');
+        importantCategory.setAttribute('href', '#');
+
+        myDayCategory.innerHTML = 'My Day';
+        importantCategory.innerHTML = 'Important';
+
+        document.querySelector('.pinned-categories').append(myDayCategory, importantCategory);
+    }
+
     static categoryInput = () => {
         const CREATE_CAT_DIV = document.querySelector('.create-category-container');
         
@@ -106,8 +122,6 @@ class CategoryUI {
 
         // current container that was created style display to block
         currentContainer.style.display = 'block';
-
-        // Hide aside class
     }
 
     // Switch category from sidebar link

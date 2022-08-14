@@ -5,10 +5,12 @@ import Category, { CategoryUI } from './Category';
 // GLOBAL SCOPE
 const MAIN_UI_DIV = document.querySelector('.main-UI');
 const TASK_FORM_DIV = document.querySelector('.task-form-background');
-// const TASK_INFO_DIV = document.querySelector('.task-info');
+const TASK_INFO_DIV = document.querySelector('.task-info');
 const CLOSE_TASK_BTN = document.querySelector('#close-task-form');
 const NEW_CATEGORY_BTN = document.querySelector('#create-category');
-// const CAT_CLOSE_BTN = document.querySelector('#create-category-cancel');
+
+// Pinned category attributes and append to sidebar 
+CategoryUI.defaultCategory();
 
 // Event - Create input field for new category
 NEW_CATEGORY_BTN.addEventListener('click', () => {
@@ -156,6 +158,6 @@ CLOSE_TASK_BTN.addEventListener('click', () => {
 })
 
 // Event - Change task border color based on priority
-document.querySelector('.task-info').addEventListener('click', (e) => {
+TASK_INFO_DIV.addEventListener('click', (e) => {
     TaskUI.setPriority(e.target);
 })
