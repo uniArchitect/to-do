@@ -15,8 +15,11 @@ class CategoryUI {
         const myDayCategory = document.createElement('a');
         const importantCategory = document.createElement('a');
 
-        myDayCategory.classList.add('pinned-list-item');
-        importantCategory.classList.add('pinned-list-item');
+        myDayCategory.classList.add('my-day-category');
+        importantCategory.classList.add('important-category');
+
+        myDayCategory.setAttribute('id', 'pinned-list-item');
+        importantCategory.setAttribute('id', 'pinned-list-item');
         myDayCategory.setAttribute('href', '#');
         importantCategory.setAttribute('href', '#');
 
@@ -116,6 +119,8 @@ class CategoryUI {
         // console.log(categoryContainerArray);
 
         const currentContainer = document.querySelector(`.${category.name}-display`);
+
+        console.log(currentContainer);
 
         // Each children element in the array set style display to none
         categoryContainerArray.forEach(element => element.style.display = 'none');

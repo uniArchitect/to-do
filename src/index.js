@@ -113,7 +113,7 @@ document.querySelector('.task-form-field').addEventListener('submit', (e) => {
 })
 
 // Event - Switch categories from sidebar link
-document.querySelector('.custom-categories').addEventListener('click', (e) => {
+document.querySelector('.sidebar').addEventListener('click', (e) => {
 
     console.log(e.target);
 
