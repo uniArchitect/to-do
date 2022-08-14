@@ -37,8 +37,6 @@ document.querySelector('.create-category-container').addEventListener('submit', 
     const CATEGORY_FORM = document.querySelector('.category-form');
     let name = document.querySelector('#category-input-name').value;
 
-    console.log(name)
-
     // value of 'name' to be altered to fit name
     let nameRevised = name.replace(' ', '-');
 
@@ -82,7 +80,7 @@ document.querySelector('.task-form-field').addEventListener('submit', (e) => {
     e.preventDefault();
 
     // const taskName is input field value
-    const taskName = document.querySelector('#name').value;
+    let taskName = document.querySelector('#name').value;
 
     // const dueDate is input field value
     const dueDate = document.querySelector('#due-date').value;
@@ -90,7 +88,14 @@ document.querySelector('.task-form-field').addEventListener('submit', (e) => {
     // const taskDescription is input field value
     const taskDescription = document.querySelector('#description').value;
 
-    const task = new Task(taskName, dueDate, taskDescription);
+    console.log(taskName);
+
+    // value of 'name' to be altered to fit name
+    let taskNameRevised = taskName.replaceAll(' ', '-');
+
+    console.log(taskNameRevised);
+
+    const task = new Task(taskNameRevised, dueDate, taskDescription);
 
     // TaskUI.function(task, category) - append task object to task list div element
     TaskUI.addTask(task);

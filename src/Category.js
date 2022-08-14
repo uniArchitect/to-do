@@ -64,7 +64,7 @@ class CategoryUI {
         // createTask.setAttribute('id', 'task-create');
 
         // Convert revised category value to original input
-        let categoryOriginal = `${category.name}`.replace('-', ' ');
+        let categoryOriginal = `${category.name}`.replaceAll('-', ' ');
         categoryName.innerHTML = categoryOriginal;
         createTask.innerHTML = 'Create A Task';
 
@@ -88,7 +88,7 @@ class CategoryUI {
         sideBarLink.setAttribute('id', 'category-link');
 
         // Convert revised category value to original input
-        let categoryOriginal = `${category.name}`.replace('-', ' ');
+        let categoryOriginal = `${category.name}`.replaceAll('-', ' ');
         sideBarLink.innerHTML = categoryOriginal;
 
         SIDEBAR_DIV.appendChild(sideBarLink);

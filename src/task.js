@@ -38,6 +38,8 @@ class TaskUI {
 
         taskObject.classList.add('task-object')
 
+        console.log(`${task.name}`);
+
         taskObject.setAttribute('id', `${task.name}-object`);
             taskCheckBoxLabel.setAttribute('for', 'accept');    
                 taskCheckBox.setAttribute('type', 'checkbox');
@@ -45,9 +47,7 @@ class TaskUI {
                 taskCheckBox.setAttribute('id', 'accept'); 
             taskName.classList.add(`${task.name}-name`);
                 taskName.setAttribute('id', 'task-name');
-                // setAttribute href='#', id= ${category.name}-link 
                 taskName.setAttribute('href', '#');
-            // taskPriority.setAttribute('id', `${task.name}-priority`);
             taskPriority.classList.add(`${task.name}-priority`);
                 taskPriority.setAttribute('id', 'task-priority');
             taskDelete.classList.add('task-delete');
@@ -55,7 +55,9 @@ class TaskUI {
         taskObject.append(taskCheckBox, taskName, taskPriority, taskDelete)
         
         // Set inner HTML elements shown on task element
-        taskName.innerHTML = `${task.name}`
+        // Convert revised task name value to original input
+        let taskOriginal = `${task.name}`.replaceAll('-', ' ');
+        taskName.innerHTML = taskOriginal
         taskPriority.innerHTML = 'PRIORITY'
         taskDelete.innerHTML = `
         <svg style="width:24px;height:24px" viewBox="0 0 24 24">
