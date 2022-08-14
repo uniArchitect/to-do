@@ -38,7 +38,7 @@ document.querySelector('.create-category-container').addEventListener('submit', 
     let name = document.querySelector('#category-input-name').value;
 
     // value of 'name' to be altered to fit name
-    let nameRevised = name.replace(' ', '-');
+    let nameRevised = name.replaceAll(' ', '-');
 
     const category = new Category(nameRevised);
 

@@ -61,7 +61,6 @@ class CategoryUI {
         categoryList.classList.add('category-list');
         categoryList.setAttribute('id', `${category.name}-list`);
         createTask.classList.add('task-create');
-        // createTask.setAttribute('id', 'task-create');
 
         // Convert revised category value to original input
         let categoryOriginal = `${category.name}`.replaceAll('-', ' ');

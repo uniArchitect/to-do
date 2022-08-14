@@ -103,6 +103,7 @@ class TaskUI {
         TASK_INFO_DIV.appendChild(taskInfo);
         // TASK_INFO_DIV.style.display = 'flex';
 
+        taskInfo.style.display = 'none';
         TASK_INFO_DIV.style.display = 'none';
     }
 
@@ -118,13 +119,18 @@ class TaskUI {
 
         console.log(taskClass);
 
-        // Each children element in the array set style display to none
-        taskContainerArray.forEach(element => element.style.display = 'none');
-
         let currentTask = document.querySelector(`.${taskClass}`);
 
-        TASK_INFO_DIV.style.display = 'block';
-        currentTask.style.display = 'flex';
+        if (currentTask.style.display == 'flex') {
+            currentTask.style.display = 'none'
+            TASK_INFO_DIV.style.display = 'none';
+        } else if (currentTask.style.display == 'none') {
+            // Each children element in the array set style display to none
+            taskContainerArray.forEach(element => element.style.display = 'none');
+            
+            TASK_INFO_DIV.style.display = 'block';
+            currentTask.style.display = 'flex';
+        }
     }
 
     // Event - Remove task
