@@ -137,6 +137,7 @@ select {
 
             .category-name {
                 font-size: 2em;
+                font-weight: bold;
             }
         
             .category-list {
