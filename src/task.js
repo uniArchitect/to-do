@@ -3,7 +3,7 @@ export default class Task {
         this.name = name;
         this.dueDate = dueDate;
         this.description = description;
-        this.priority = '';
+        // this.priority = '';
         this.notes = '';
         this.checklist = [];
     }
@@ -33,7 +33,7 @@ class TaskUI {
                 const taskCheckBox = document.createElement('input');    
         // Feature - Show task information when ('a') link is clicked
             const taskName = document.createElement('a');
-            const taskPriority = document.createElement('button');
+            // const taskPriority = document.createElement('button');
             const taskDelete = document.createElement('button');
 
         taskObject.classList.add('task-object')
@@ -48,17 +48,17 @@ class TaskUI {
             taskName.classList.add(`${task.name}-name`);
                 taskName.setAttribute('id', 'task-name');
                 taskName.setAttribute('href', '#');
-            taskPriority.classList.add(`${task.name}-priority`);
-                taskPriority.setAttribute('id', 'task-priority');
+            // taskPriority.classList.add(`${task.name}-priority`);
+            //     taskPriority.setAttribute('id', 'task-priority');
             taskDelete.classList.add('task-delete');
 
-        taskObject.append(taskCheckBox, taskName, taskPriority, taskDelete)
+        taskObject.append(taskCheckBox, taskName, taskDelete)
         
         // Set inner HTML elements shown on task element
         // Convert revised task name value to original input
         let taskOriginal = `${task.name}`.replaceAll('-', ' ');
         taskName.innerHTML = taskOriginal
-        taskPriority.innerHTML = 'PRIORITY'
+        // taskPriority.innerHTML = 'PRIORITY'
         taskDelete.innerHTML = `
         <svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
@@ -92,7 +92,7 @@ class TaskUI {
         <input required type="date" id="task-info-date" name="task-info-date" value="${task.dueDate}">
         <input type="text" value="${task.description}"></input>
         <select class="task-priority">
-            ${task.priority}
+            <option value="No Priority">No Priority</option>
             <option value="High Priority">High Priority</option>
             <option value="Medium Priority">Medium Priority</option>
             <option value="Low Priority">Low Priority</option>
@@ -161,24 +161,23 @@ class TaskUI {
     // Event - Complete a task (Sets its style to be shown as complete) when checkbox is checked off
 
     // Event - Set style of border when task priority changes
-    static setPriority() {
+    static setPriority(priority) {
 
-        // define priority variable from task info input
-        let taskPriority = document.querySelector('.task-priority');
+        // define parent div element class name as a string
+        let parentElement = priority.parentElement.className;
+        let parentElementRev = parentElement.replace('info', 'object');
+        console.log(parentElementRev)
 
-        console.log(taskPriority.value);
+        // define task variable in main-UI container
+        let taskObject = document.querySelector(`#${parentElementRev}`)
 
         // let style change if input is high, medium or low priority
-        if (taskPriority.value == 'High Priority') {
-            // define parent div element class name as a string
-            let parentElement = taskPriority.parentElement.className;
-            console.log(parentElement);
-            let parentElementRev = parentElement.replace('info', 'object');
-            console.log(parentElementRev);
-            // define task variable in main-UI container
-            let taskObject = document.querySelector(`#${parentElementRev}`)
-            console.log(taskObject);
+        if (priority.value == 'High Priority') {
             taskObject.style.border = '1px solid #F13C20'
+        } else if (priority.value == 'Medium Priority') {
+            taskObject.style.border = '1px solid #D79922'
+        } else if (priority.value == 'Low Priority') {
+            taskObject.style.border = '1px solid #5AB9EA'
         }
     }
 }
