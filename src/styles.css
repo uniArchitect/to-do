@@ -200,6 +200,7 @@ select:focus {
                     background: #474b4f;
                     padding: 0.35em;
                     border-radius: 0.5em;
+                    border-left: 0.5em solid #474b4f;
                 }
 
                 .task-object:hover {
@@ -211,6 +212,7 @@ select:focus {
                 .task-name-check-container {
                     display: flex;
                     column-gap: 1em;
+                    margin-left: .5em;
                 }
 
                         /* Checkbox Styling */

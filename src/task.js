@@ -40,7 +40,8 @@ class TaskUI {
         taskObject.classList.add('task-object')
 
         taskObject.setAttribute('id', `${task.name}-object`);
-            taskCheckBoxLabel.setAttribute('for', `${task.name}-checklist`);    
+            taskCheckBoxLabel.setAttribute('for', `${task.name}-checklist`); 
+            taskCheckBoxLabel.classList.add(`${task.name}-checklist`);   
                 taskCheckBox.setAttribute('type', 'checkbox');
                 taskCheckBox.setAttribute('class', `${task.name}-checklist`);   
                 taskCheckBox.setAttribute('id', 'accept'); 
@@ -174,11 +175,11 @@ class TaskUI {
 
         // let style change if input is high, medium or low priority
         if (priority.value == 'High Priority') {
-            taskObject.style.border = '1px solid #F13C20'
+            taskObject.style.borderLeft = '.5em solid #F13C20'
         } else if (priority.value == 'Medium Priority') {
-            taskObject.style.border = '1px solid #D79922'
+            taskObject.style.borderLeft = '.5em solid #D79922'
         } else if (priority.value == 'Low Priority') {
-            taskObject.style.border = '1px solid #5AB9EA'
+            taskObject.style.borderLeft = '.5em solid #5AB9EA'
         } else if (priority.value == 'No Priority') {
             // Note: Default border to be set so height of task line item does not alter flexbox
             taskObject.style.border = 'none'
