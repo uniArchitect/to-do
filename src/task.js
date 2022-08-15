@@ -4,7 +4,6 @@ export default class Task {
         this.dueDate = dueDate;
         this.description = description;
         this.notes = '';
-        this.checklist = [];
     }
 }
 
@@ -86,17 +85,21 @@ class TaskUI {
 
         // Show object properties with innerHTML
         taskInfo.innerHTML = `
+        <label for="task-name" class="task-info-text">Task Name</label>
         <input type="text" value="${task.name}"></input>
+        <label for="due-date" class="task-info-text">Due Date</label>
         <input required type="date" id="task-info-date" name="task-info-date" value="${task.dueDate}">
-        <input type="text" value="${task.description}"></input>
+        <label for="task-description" class="task-info-text">Description</label>
+        <textarea id="task-info-text-description" name="description" value="${task.description}"></textarea>
         <select class="task-priority">
             <option value="No Priority">No Priority</option>
             <option value="High Priority">High Priority</option>
             <option value="Medium Priority">Medium Priority</option>
             <option value="Low Priority">Low Priority</option>
         </select>
-        <input value="Add note">${task.notes}</input>
-        <div class="task-checklist">${task.checklist}</div>
+        <br>
+        <label for="task-notes" class="task-info-text">Notes</label>
+        <textarea id="task-info-text-area" name="notes" placeholder="Add note here">${task.notes}</textarea>
         `
         TASK_INFO_DIV.appendChild(taskInfo);
         // TASK_INFO_DIV.style.display = 'flex';

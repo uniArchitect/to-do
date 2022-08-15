@@ -125,12 +125,44 @@ select:focus {
             border-radius: 0.75em;
             padding: 1em;
         }
+
+            .task-info-text {
+                font-size: small;
+            }
+
+            #task-info-text-area {
+                font-family: 'Montserrat', sans-serif;
+                height: 5em;
+                border-radius: 5px;
+                border: 1px solid #222629;
+                background: #222629;
+                color: inherit;
+            }
+
+            #task-info-text-area:focus {
+                outline: none;
+                border: 1px solid #4056A1;
+            }
+
+            #task-info-text-description {
+                font-family: 'Montserrat', sans-serif;
+                height: 3em;
+                border-radius: 5px;
+                border: 1px solid #222629;
+                background: #222629;
+                color: inherit;
+            }
+
+            #task-info-text-description:focus {
+                outline: none;
+                border: 1px solid #4056A1;
+            }
         
         /* Each task-info object should be one unified class (use multiple classes?) */
         #task-card {
             display: flex;
             flex-direction: column;
-            row-gap: 0.75em;
+            row-gap: 0.25em;
         }
 
         .main-UI {
@@ -226,6 +258,7 @@ select:focus {
                     
                     .task-delete {
                         display: flex;
+                        background: #474b4f;
                     }
 
         .sidebar {
