@@ -13,10 +13,9 @@ body, html {
 
 input {
     border-radius: 5px;
-    border: 1px solid;
-    border-color: #d3d3d3;
+    border: 1px solid #222629;
     height: 1.75em;
-    background: #474b4f;
+    background: #222629;
     color: inherit;
 }
 
@@ -27,11 +26,15 @@ input:focus {
 
 select {
     border-radius: 5px;
-    border: 1px solid;
-    border-color: #d3d3d3;
+    border: 1px solid #222629;
     height: 1.75em;
-    background: #474b4f;
+    background: #222629;
     color: inherit;
+}
+
+select:focus {
+    outline: none;
+    border: 1px solid #4056A1;
 }
 
     /* Stylize task form and input elements*/
@@ -155,9 +158,57 @@ select {
                     border-radius: 0.5em;
                 }
 
-                    /* #accept {
+                .task-name-check-container {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    column-gap: 1em;
+                }
 
-                    } */
+                        /* Checkbox Styling */
+                        .task-name-check-container label {
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                        }
+                    
+                        .task-name-check-container input[type="checkbox"] {
+                            cursor: pointer;
+                            opacity: 0;
+                            position: absolute;
+                            left: 23.5%;
+                        }
+
+                        .task-name-check-container label::before {
+                            content: '';
+                            width: 1.25em;
+                            height: 1.25em;
+                            border-radius: 1em;
+                            margin-right: .5em;
+                            border: .05em solid #222629;
+                            background-color: #222629;
+                        }
+
+                        .task-name-check-container label:hover::before, 
+                        .task-name-check-container input[type='checkbox']:hover + label::before {
+                            border: .05em solid #4056A1;
+                            background-color: #4056A1;
+                        }
+
+                        /* .task-object input[type='checkbox']:focus + label::before {
+                            box-shadow: 0 0 .5em white;
+                        } */
+
+                        .task-name-check-container input[type='checkbox']:checked + label::before {
+                            /* checkmark icon */
+                            content: '\002714';
+                            border: .05em solid #4056A1;
+                            background-color: #4056A1;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            color: white;
+                        }
 
                     #task-name {
                         display: flex;

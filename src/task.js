@@ -3,7 +3,6 @@ export default class Task {
         this.name = name;
         this.dueDate = dueDate;
         this.description = description;
-        // this.priority = '';
         this.notes = '';
         this.checklist = [];
     }
@@ -33,32 +32,31 @@ class TaskUI {
                 const taskCheckBox = document.createElement('input');    
         // Feature - Show task information when ('a') link is clicked
             const taskName = document.createElement('a');
-            // const taskPriority = document.createElement('button');
             const taskDelete = document.createElement('button');
+
+        // Hold task name and checkbox in same container div
+        const taskCheckName_CONTAINER = document.createElement('div');
+        taskCheckName_CONTAINER.classList.add('task-name-check-container')
 
         taskObject.classList.add('task-object')
 
-        console.log(`${task.name}`);
-
         taskObject.setAttribute('id', `${task.name}-object`);
-            taskCheckBoxLabel.setAttribute('for', 'accept');    
+            taskCheckBoxLabel.setAttribute('for', `${task.name}-checklist`);    
                 taskCheckBox.setAttribute('type', 'checkbox');
                 taskCheckBox.setAttribute('class', `${task.name}-checklist`);   
                 taskCheckBox.setAttribute('id', 'accept'); 
             taskName.classList.add(`${task.name}-name`);
                 taskName.setAttribute('id', 'task-name');
                 taskName.setAttribute('href', '#');
-            // taskPriority.classList.add(`${task.name}-priority`);
-            //     taskPriority.setAttribute('id', 'task-priority');
             taskDelete.classList.add('task-delete');
 
-        taskObject.append(taskCheckBox, taskName, taskDelete)
+        taskCheckName_CONTAINER.append(taskCheckBox, taskCheckBoxLabel, taskName)
+        taskObject.append(taskCheckName_CONTAINER, taskDelete)
         
         // Set inner HTML elements shown on task element
         // Convert revised task name value to original input
         let taskOriginal = `${task.name}`.replaceAll('-', ' ');
         taskName.innerHTML = taskOriginal
-        // taskPriority.innerHTML = 'PRIORITY'
         taskDelete.innerHTML = `
         <svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
