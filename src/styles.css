@@ -186,8 +186,14 @@ select:focus {
                     display: flex;
                     justify-content: space-between;
                     background: #474b4f;
-                    padding: 0.75em;
+                    padding: 0.35em;
                     border-radius: 0.5em;
+                }
+
+                .task-object:hover {
+                    transition: .15s;
+                    transform: translateY(-2px);
+                    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
                 }
 
                 .task-name-check-container {
@@ -208,7 +214,7 @@ select:focus {
                             cursor: pointer;
                             opacity: 0;
                             position: absolute;
-                            left: 23.5%;
+                            left: 22.25%;
                         }
 
                         .task-name-check-container label::before {
@@ -284,6 +290,9 @@ select:focus {
                 #pinned-list-item:hover {
                     background: #4056A1;
                     border-radius: 0.5em;
+                    transition: .15s;
+                    transform: translateY(-2px);
+                    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
                 }
 
             .custom-categories {
@@ -303,6 +312,9 @@ select:focus {
                 #category-link:hover {
                     background: #4056A1;
                     border-radius: 0.5em;
+                    transition: .15s;
+                    transform: translateY(-2px);
+                    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
                 }
 
             .create-category-container {

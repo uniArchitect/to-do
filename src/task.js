@@ -90,7 +90,7 @@ class TaskUI {
         <label for="due-date" class="task-info-text">Due Date</label>
         <input required type="date" id="task-info-date" name="task-info-date" value="${task.dueDate}">
         <label for="task-description" class="task-info-text">Description</label>
-        <textarea id="task-info-text-description" name="description" value="${task.description}"></textarea>
+        <textarea id="task-info-text-description" name="description">${task.description}</textarea>
         <select class="task-priority">
             <option value="No Priority">No Priority</option>
             <option value="High Priority">High Priority</option>
@@ -184,6 +184,10 @@ class TaskUI {
             taskObject.style.border = 'none'
         }
     }
+
+    // Event - Change name of task if task info input for name is changed
+
+    // Event - Set text area and input .disabled = 'true'
 }
 
 export { TaskUI }
