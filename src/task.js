@@ -182,7 +182,7 @@ class TaskUI {
             taskObject.style.borderLeft = '.5em solid #5AB9EA'
         } else if (priority.value == 'No Priority') {
             // Note: Default border to be set so height of task line item does not alter flexbox
-            taskObject.style.border = 'none'
+            taskObject.style.borderLeft = '.5em solid #474b4f'
         }
     }
 
