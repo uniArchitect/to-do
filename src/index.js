@@ -1,6 +1,7 @@
 import './styles.css';
 import Task, { TaskUI } from './task.js';
-import Category, { CategoryUI } from './Category';
+import Category, { CategoryUI } from './Category.js';
+import from './utility.js'
 
 // GLOBAL SCOPE
 const MAIN_UI_DIV = document.querySelector('.main-UI');

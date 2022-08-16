@@ -20,7 +20,6 @@ class TaskUI {
 
         // Filter out the child element with display 'block'
         const visibleCategory = categoryContainerArray.filter(Element => Element.style.display == 'block');
-        // console.log(visibleCategory);
 
         // element[] specified [0] array element to be HTML element - Select ul element of category HTML element
         const categoryList = visibleCategory[0].querySelector('ul');
@@ -119,8 +118,6 @@ class TaskUI {
         const otherTasks = document.querySelector('.task-info').children;
         const taskContainerArray = [...otherTasks];
 
-        console.log(taskClass);
-
         let currentTask = document.querySelector(`.${taskClass}`);
 
         // if task item display is flex, then set display to none
@@ -150,8 +147,6 @@ class TaskUI {
         
         // Define the element by class name
         let removeTaskElement = document.querySelector(`.${taskClassRemove}`);
-
-        // console.log(task.className);
 
         // Remove task under main-UI
         task.parentElement.remove();
