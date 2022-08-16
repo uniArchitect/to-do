@@ -1,4 +1,4 @@
-// Event - Click on new category - Append a new li element
+import Utility from './utility.js'
 
 // Create Category information first with an input field
 // Then you can use add functions to append that information into the web page
@@ -12,8 +12,10 @@ class CategoryUI {
 
     static hideChildrenElements = () => {
         // All children elements in main-UI container div are pushed into an array
-        const otherContainers = document.querySelector('.main-UI').children;
-        const categoryContainerArray = [...otherContainers];
+        // const otherContainers = document.querySelector('.main-UI').children;
+        // const categoryContainerArray = [...otherContainers];
+
+        Utility.spreadElements();
 
         // Each children element in the array set style display to none
         categoryContainerArray.forEach(element => element.style.display = 'none');
