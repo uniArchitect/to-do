@@ -10,6 +10,15 @@ export default class Category {
 
 class CategoryUI {
 
+    static hideChildrenElements = () => {
+        // All children elements in main-UI container div are pushed into an array
+        const otherContainers = document.querySelector('.main-UI').children;
+        const categoryContainerArray = [...otherContainers];
+
+        // Each children element in the array set style display to none
+        categoryContainerArray.forEach(element => element.style.display = 'none');
+    }
+    
     static defaultCategory = () => {
         // Pinned category attributes and append to sidebar 
         const myDayCategory = document.createElement('a');
@@ -90,6 +99,11 @@ class CategoryUI {
 
         MAIN_UI_DIV.appendChild(categoryContainer);
 
+        // Store new category into local storage
+        // Local storage wants to take 'string' values of the properties of an element
+        // 
+        // window.localStorage.setItem('category', JSON.stringify(categoryContainer));
+
         return categoryContainer
     } 
 
@@ -113,17 +127,10 @@ class CategoryUI {
     }
 
     static switchCategory = (category) => {
-        // All children elements in main-UI container div are pushed into an array
-        const otherContainers = document.querySelector('.main-UI').children;
-        const categoryContainerArray = [...otherContainers];
-        // console.log(categoryContainerArray);
 
         const currentContainer = document.querySelector(`.${category.name}-display`);
 
-        console.log(currentContainer);
-
-        // Each children element in the array set style display to none
-        categoryContainerArray.forEach(element => element.style.display = 'none');
+        CategoryUI.hideChildrenElements();
 
         // current container that was created style display to block
         currentContainer.style.display = 'block';
@@ -131,10 +138,7 @@ class CategoryUI {
 
     // Switch category from sidebar link
     static switchCategoryContainer = (link) => {
-        // All children elements in main-UI container div are pushed into an array
-        const otherContainers = document.querySelector('.main-UI').children;
-        const categoryContainerArray = [...otherContainers];
-
+        
         // get currentContainer
         // Note: get class name replace 'category' and replace with 'display' to grab coinciding container
         // const linkClass = link.classList.replace('category', 'display');
@@ -143,8 +147,7 @@ class CategoryUI {
 
         const currentContainer = document.querySelector(`.${linkClass}`);
 
-        // Each children element in the array set style display to none
-        categoryContainerArray.forEach(element => element.style.display = 'none');
+        CategoryUI.hideChildrenElements();
 
         // current container that was created style display to block
         currentContainer.style.display = 'block';
