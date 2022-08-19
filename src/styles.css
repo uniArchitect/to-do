@@ -279,6 +279,7 @@ button:hover {
 .task-delete {
   display: flex;
   background: #474b4f;
+  border-radius: 2em;
 }
 
 .sidebar {
