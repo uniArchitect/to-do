@@ -121,16 +121,12 @@ class TaskUI {
     const currentTask = document.querySelector(`.${taskClass}`);
 
     // if task item display is flex, then set display to none
-    if (currentTask.style.display == "flex") {
-      currentTask.style.display = "none";
-    //   TASK_INFO_DIV.style.display = "none";
-      // if task item display is none, then set display to flex
-    } else if (currentTask.style.display == "none") {
-      // Each children element in the array set style display to none
-      taskContainerArray.forEach((element) => (element.style.display = "none"));
-
-      TASK_INFO_DIV.style.display = "block";
-      currentTask.style.display = "flex";
+    if (currentTask.style.display == "none") {
+        // Each children element in the array set style display to none
+        taskContainerArray.forEach((element) => (element.style.display = "none"));
+  
+        TASK_INFO_DIV.style.display = "block";
+        currentTask.style.display = "flex";
     }
   };
 

@@ -83,9 +83,7 @@ document
   });
 
 // Create a Task Button - addTaskBtn.eventListener ('submit') =>
-document
-  .querySelector(".task-form-field")
-  .addEventListener("submit", (e) => {
+document.querySelector(".task-form-field").addEventListener("submit", (e) => {
   e.preventDefault();
 
   // const taskName is input field value
@@ -120,9 +118,7 @@ document
 });
 
 // Event - Switch categories from sidebar link
-document
-.querySelector(".sidebar")
-.addEventListener("click", (e) => {
+document.querySelector(".sidebar").addEventListener("click", (e) => {
   console.log(e.target);
 
   // function CategoryUI.switchCategory(category) - existing cat container display = none, new cat container display = block
@@ -136,7 +132,7 @@ MAIN_UI_DIV.addEventListener("click", (e) => {
   // showTaskInfo toggle on and off when clicking the same link
   if (e.target.className.includes("name")) {
     TaskUI.showTaskInfo(e.target);
-    TASK_INFO_DIV.classList.toggle('task-info-active');
+    TASK_INFO_DIV.classList.toggle("task-info-active");
   }
 });
 
