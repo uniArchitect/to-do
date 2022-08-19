@@ -1,93 +1,95 @@
-import Utility from './utility.js'
+import Utility from "./utility.js";
 
 export default class Task {
-    constructor(name, dueDate, description) {
-        this.name = name;
-        this.dueDate = dueDate;
-        this.description = description;
-        this.notes = '';
-    }
+  constructor(name, dueDate, description) {
+    this.name = name;
+    this.dueDate = dueDate;
+    this.description = description;
+    this.notes = "";
+  }
 }
 
 // Event - Add task to list when form is filled out and submitted
 
 class TaskUI {
-    // Event - Append task argument to ${category.name}-list of current category shown in main-UI container div
-    
-    static addTask(task) {
-        // Note: How to specify which category object to append to? - the displayed category container
-        // const categoryChildren = document.querySelector('.main-UI').children;
-        // const categoryContainerArray = [...categoryChildren];
+  // Event - Append task argument to ${category.name}-list of current category shown in main-UI container div
 
-        const categoryContainerArray = Utility.spreadElements();
+  static addTask(task) {
+    // Note: How to specify which category object to append to? - the displayed category container
+    // const categoryChildren = document.querySelector('.main-UI').children;
+    // const categoryContainerArray = [...categoryChildren];
 
-        // Filter out the child element with display 'block'
-        const visibleCategory = categoryContainerArray.filter(Element => Element.style.display == 'block');
+    const categoryContainerArray = Utility.spreadElements();
 
-        // element[] specified [0] array element to be HTML element - Select ul element of category HTML element
-        const categoryList = visibleCategory[0].querySelector('ul');
+    // Filter out the child element with display 'block'
+    const visibleCategory = categoryContainerArray.filter(
+      (Element) => Element.style.display == "block"
+    );
 
-        // Creates task li element
-        const taskObject = document.createElement('li');
-            const taskCheckBoxLabel = document.createElement('label')
-                const taskCheckBox = document.createElement('input');    
-        // Feature - Show task information when ('a') link is clicked
-            const taskName = document.createElement('a');
-            const taskDelete = document.createElement('button');
+    // element[] specified [0] array element to be HTML element - Select ul element of category HTML element
+    const categoryList = visibleCategory[0].querySelector("ul");
 
-        // Hold task name and checkbox in same container div
-        const taskCheckName_CONTAINER = document.createElement('div');
-        taskCheckName_CONTAINER.classList.add('task-name-check-container')
+    // Creates task li element
+    const taskObject = document.createElement("li");
+    const taskCheckBoxLabel = document.createElement("label");
+    const taskCheckBox = document.createElement("input");
+    // Feature - Show task information when ('a') link is clicked
+    const taskName = document.createElement("a");
+    const taskDelete = document.createElement("button");
 
-        taskObject.classList.add('task-object')
+    // Hold task name and checkbox in same container div
+    const taskCheckName_CONTAINER = document.createElement("div");
+    taskCheckName_CONTAINER.classList.add("task-name-check-container");
 
-        taskObject.setAttribute('id', `${task.name}-object`);
-            taskCheckBoxLabel.setAttribute('for', `${task.name}-checklist`); 
-            taskCheckBoxLabel.classList.add(`${task.name}-checklist`);   
-                taskCheckBox.setAttribute('type', 'checkbox');
-                taskCheckBox.setAttribute('class', `${task.name}-checklist`);   
-                taskCheckBox.setAttribute('id', 'accept'); 
-            taskName.classList.add(`${task.name}-name`);
-                taskName.setAttribute('id', 'task-name');
-                taskName.setAttribute('href', '#');
-            taskDelete.classList.add('task-delete');
+    taskObject.classList.add("task-object");
 
-        taskCheckName_CONTAINER.append(taskCheckBox, taskCheckBoxLabel, taskName)
-        taskObject.append(taskCheckName_CONTAINER, taskDelete)
-        
-        // Set inner HTML elements shown on task element
-        // Convert revised task name value to original input
-        const taskOriginal = `${task.name}`.replaceAll('-', ' ');
-        taskName.innerHTML = taskOriginal
-        taskDelete.innerHTML = `
+    taskObject.setAttribute("id", `${task.name}-object`);
+    taskCheckBoxLabel.setAttribute("for", `${task.name}-checklist`);
+    taskCheckBoxLabel.classList.add(`${task.name}-checklist`);
+    taskCheckBox.setAttribute("type", "checkbox");
+    taskCheckBox.setAttribute("class", `${task.name}-checklist`);
+    taskCheckBox.setAttribute("id", "accept");
+    taskName.classList.add(`${task.name}-name`);
+    taskName.setAttribute("id", "task-name");
+    taskName.setAttribute("href", "#");
+    taskDelete.classList.add("task-delete");
+
+    taskCheckName_CONTAINER.append(taskCheckBox, taskCheckBoxLabel, taskName);
+    taskObject.append(taskCheckName_CONTAINER, taskDelete);
+
+    // Set inner HTML elements shown on task element
+    // Convert revised task name value to original input
+    const taskOriginal = `${task.name}`.replaceAll("-", " ");
+    taskName.innerHTML = taskOriginal;
+    taskDelete.innerHTML = `
         <svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        `
+        `;
 
-        categoryList.appendChild(taskObject);
-    }
+    categoryList.appendChild(taskObject);
+  }
 
-    // Event - Clear task form field
-    static clearTaskForm() {
-        document.querySelector('#name').value = '';
-        document.querySelector('#due-date').value = '';
-        document.querySelector('#description').value = '';
-    }
+  // Event - Clear task form field
+  static clearTaskForm() {
+    document.querySelector("#name").value = "";
+    document.querySelector("#due-date").value = "";
+    document.querySelector("#description").value = "";
+  }
 
-    // Create task info when task is created from task form submission
-    // Note: index.js event listener 'click'
-    static createTaskInfo = (task) => {
-        const TASK_INFO_DIV = document.querySelector('.task-info');
-        
-        // Create div element
-        const taskInfo = document.createElement('div');
+  // Create task info when task is created from task form submission
+  // Note: index.js event listener 'click'
+  static createTaskInfo = (task) => {
+    const TASK_INFO_DIV = document.querySelector(".task-info");
 
-        taskInfo.classList.add(`${task.name}-info`);
-        taskInfo.setAttribute('id', 'task-card');
+    // Create div element
+    const taskInfo = document.createElement("div");
 
-        // Show object properties with innerHTML
-        taskInfo.innerHTML = `
+    taskInfo.classList.add(`${task.name}-info`);
+    taskInfo.setAttribute("id", "task-card");
+
+    // Show object properties with innerHTML
+    taskInfo.innerHTML = `
         <label for="task-name" class="task-info-text">Task Name</label>
         <input type="text" value="${task.name}"></input>
         <label for="due-date" class="task-info-text">Due Date</label>
@@ -103,80 +105,80 @@ class TaskUI {
         <br>
         <label for="task-notes" class="task-info-text">Notes</label>
         <textarea id="task-info-text-area" name="notes" placeholder="Add note here">${task.notes}</textarea>
-        `
-        TASK_INFO_DIV.appendChild(taskInfo);
-        // TASK_INFO_DIV.style.display = 'flex';
+        `;
+    TASK_INFO_DIV.appendChild(taskInfo);
+    // TASK_INFO_DIV.style.display = 'flex';
 
-        taskInfo.style.display = 'none';
-        TASK_INFO_DIV.style.display = 'none';
+    taskInfo.style.display = "none";
+    TASK_INFO_DIV.style.display = "none";
+  };
+
+  // Feature - Show task information when ('a') link is clicked
+  static showTaskInfo = (task) => {
+    const TASK_INFO_DIV = document.querySelector(".task-info");
+    const taskClass = task.className.replace("name", "info");
+
+    // All children elements in task-info container div are pushed into an array
+    const otherTasks = document.querySelector(".task-info").children;
+    const taskContainerArray = [...otherTasks];
+
+    const currentTask = document.querySelector(`.${taskClass}`);
+
+    // if task item display is flex, then set display to none
+    if (currentTask.style.display == "flex") {
+      currentTask.style.display = "none";
+      TASK_INFO_DIV.style.display = "none";
+      // if task item display is none, then set display to flex
+    } else if (currentTask.style.display == "none") {
+      // Each children element in the array set style display to none
+      taskContainerArray.forEach((element) => (element.style.display = "none"));
+
+      TASK_INFO_DIV.style.display = "block";
+      currentTask.style.display = "flex";
     }
+  };
 
-    // Feature - Show task information when ('a') link is clicked
-    static showTaskInfo = (task) => {
-        const TASK_INFO_DIV = document.querySelector('.task-info');
-        const taskClass = task.className.replace('name', 'info');
+  // Event - Remove task
+  static removeTask(task) {
+    // This is task-delete
+    const currentElement = document.querySelector(`.${task.className}`);
+    // Should return "'task name'-priority"
+    const prevSibling = currentElement.previousElementSibling;
+    // Replace priority class name with info to match aside li element class
+    const taskClassRemove = prevSibling.className.replace("priority", "info");
 
-        // All children elements in task-info container div are pushed into an array
-        const otherTasks = document.querySelector('.task-info').children;
-        const taskContainerArray = [...otherTasks];
+    // Define the element by class name
+    const removeTaskElement = document.querySelector(`.${taskClassRemove}`);
 
-        const currentTask = document.querySelector(`.${taskClass}`);
+    // Remove task under main-UI
+    task.parentElement.remove();
 
-        // if task item display is flex, then set display to none
-        if (currentTask.style.display == 'flex') {
-            currentTask.style.display = 'none'
-            TASK_INFO_DIV.style.display = 'none';
-        // if task item display is none, then set display to flex
-        } else if (currentTask.style.display == 'none') {
-            // Each children element in the array set style display to none
-            taskContainerArray.forEach(element => element.style.display = 'none');
-            
-            TASK_INFO_DIV.style.display = 'block';
-            currentTask.style.display = 'flex';
-        }
-    }
+    // Need to also remove from aside element
+    removeTaskElement.remove();
+  }
 
-    // Event - Remove task
-    static removeTask(task) {
-        // This is task-delete
-        const currentElement = document.querySelector(`.${task.className}`);
-        // Should return "'task name'-priority"
-        const prevSibling = currentElement.previousElementSibling;
-        // Replace priority class name with info to match aside li element class
-        const taskClassRemove = prevSibling.className.replace('priority', 'info');
-        
-        // Define the element by class name
-        const removeTaskElement = document.querySelector(`.${taskClassRemove}`);
+  // Event - Complete a task (Sets its style to be shown as complete) when checkbox is checked off
 
-        // Remove task under main-UI
-        task.parentElement.remove();
+  // Event - Set style of border when task priority changes
+  static setPriority(priority) {
+    // define parent div element class name as a string
+    const parentElement = priority.parentElement.className;
+    const parentElementRev = parentElement.replace("info", "object");
+    // console.log(parentElementRev)
 
-        // Need to also remove from aside element
-        removeTaskElement.remove();
-    }
+    // define task variable in main-UI container
+    const taskObject = document.querySelector(`#${parentElementRev}`);
 
-    // Event - Complete a task (Sets its style to be shown as complete) when checkbox is checked off
-
-    // Event - Set style of border when task priority changes
-    static setPriority(priority) {
-        // define parent div element class name as a string
-        const parentElement = priority.parentElement.className;
-        const parentElementRev = parentElement.replace('info', 'object');
-        // console.log(parentElementRev)
-
-        // define task variable in main-UI container
-        const taskObject = document.querySelector(`#${parentElementRev}`)
-
-        // let style change if input is high, medium or low priority
-        if (priority.value == 'High Priority') {
-            taskObject.style.borderLeft = '.5em solid #F13C20'
-        } else if (priority.value == 'Medium Priority') {
-            taskObject.style.borderLeft = '.5em solid #D79922'
-        } else if (priority.value == 'Low Priority') {
-            taskObject.style.borderLeft = '.5em solid #5AB9EA'
-        } else if (priority.value == 'No Priority') {
+    // let style change if input is high, medium or low priority
+    if (priority.value == "High Priority") {
+      taskObject.style.borderLeft = ".5em solid #F13C20";
+    } else if (priority.value == "Medium Priority") {
+      taskObject.style.borderLeft = ".5em solid #D79922";
+    } else if (priority.value == "Low Priority") {
+      taskObject.style.borderLeft = ".5em solid #5AB9EA";
+    } else if (priority.value == "No Priority") {
       // Note: Default border to be set so height of task line item does not alter flexbox
-      taskObject.style.borderLeft = '.5em solid #474b4f'
+      taskObject.style.borderLeft = ".5em solid #474b4f";
     }
   }
 
@@ -185,4 +187,4 @@ class TaskUI {
   // Event - Set text area and input .disabled = 'true'
 }
 
-export { TaskUI }
+export { TaskUI };
