@@ -125,11 +125,9 @@ button:hover {
 }
 
 .task-info {
-  /* position: absolute;
-            display: none;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);  */
+  /* position: absolute; */
+  transform: translateX(150%);
+  transition: transform 0.5s ease-in; 
   background: #474b4f;
   grid-column: 5 / 6;
   grid-row: 1 / 13;
@@ -137,6 +135,10 @@ button:hover {
   flex-direction: row-reverse;
   border-radius: 0.75em;
   padding: 1em;
+}
+
+.task-info:active {
+  transform: translateX(0%);
 }
 
 .task-info-text {

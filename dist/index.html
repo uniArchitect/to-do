@@ -1,92 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="main.js" defer></script>
     <title>To Do Web App</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <aside class="task-form-background">
-            <form action="index.html" method="get" class="task-form-field">
-                <ul class="task-form">
-                    <li class="task-form-list">
-                        <label for="name">
-                            Task Name
-                        </label>
-                        <input required type="text" id="name" name="task-name">
-                    </li>
-                    <li class="task-form-list">
-                        <label for="due-date">
-                            <!-- This should be a calendar element later -->
-                            Due Date
-                        </label>
-                        <input required type="date" id="due-date" name="task-due-date" value="2022-01-01" style="font-family: 'Montserrat';">
-                    </li>
-                    <li class="task-form-list">
-                        <label for="description">
-                            Task Description
-                        </label>
-                        <input required type="text" id="description" name="task-description">
-                    </li>
-                    <div class="task-form-buttons">
-                        <li>
-                            <input type="submit" id="task-add" value="Add Task">
-                        </li>
-                        <!-- BUG: Edit functionality to close and not submit form -->
-                        <button id="close-task-form">
-                            Close 
-                        </button>    
-                    </div>
-                </ul>
-            </form>
-        </aside>
-        <aside class="task-info" style="display: none;">
-
-        </aside>
-        <!-- Task Display will hide when a category is selected -->
-        <div class="main-UI">   
-             <!--Possibly replace with something else in final product to indicate adding a category through the sidebar  -->
-             <!-- This could also be set to same class as newly created div elements -->
-            <div class="my-day-display" style="display: block;">
-                <div class="category-name" id="my-day-name">
-                    My Day
-                </div>
-                <ul class="category-list" id="my-day-name">
-
-                </ul>
-                <button class="task-create">
-                    Create A Task
-                </button>    
+      <aside class="task-form-background">
+        <form action="index.html" method="get" class="task-form-field">
+          <ul class="task-form">
+            <li class="task-form-list">
+              <label for="name"> Task Name </label>
+              <input required type="text" id="name" name="task-name" />
+            </li>
+            <li class="task-form-list">
+              <label for="due-date">
+                <!-- This should be a calendar element later -->
+                Due Date
+              </label>
+              <input
+                required
+                type="date"
+                id="due-date"
+                name="task-due-date"
+                value="2022-01-01"
+                style="font-family: 'Montserrat'"
+              />
+            </li>
+            <li class="task-form-list">
+              <label for="description"> Task Description </label>
+              <input
+                required
+                type="text"
+                id="description"
+                name="task-description"
+              />
+            </li>
+            <div class="task-form-buttons">
+              <li>
+                <input type="submit" id="task-add" value="Add Task" />
+              </li>
+              <!-- BUG: Edit functionality to close and not submit form -->
+              <button id="close-task-form">Close</button>
             </div>
-            <div class="important-display" style="display: none;">
-                <div class="category-name" id="important-name">
-                    Important
-                </div>
-                <ul class="category-list" id="important-name">
-
-                </ul>
-                <button class="task-create">
-                    Create A Task
-                </button>    
-            </div>
+          </ul>
+        </form>
+      </aside>
+      <aside class="task-info" style="display: none"></aside>
+      <!-- Task Display will hide when a category is selected -->
+      <div class="main-UI">
+        <!--Possibly replace with something else in final product to indicate adding a category through the sidebar  -->
+        <!-- This could also be set to same class as newly created div elements -->
+        <div class="my-day-display" style="display: block">
+          <div class="category-name" id="my-day-name">My Day</div>
+          <ul class="category-list" id="my-day-name"></ul>
+          <button class="task-create">Create A Task</button>
         </div>
-        <div class="sidebar">
-            <!-- This may be an a element that can toggle pinned categories such as 'My Day' or 'Important' -->
-            <ul class="pinned-categories">
-                <!-- JS created Pinned Categories -->
-            </ul>
-            <ul class="custom-categories">
-                <!-- Custom Categories -->
-            </ul>
-            <div class="create-category-container">
-                <button id="create-category">
-                    New Category
-                </button>    
-            </div>
+        <div class="important-display" style="display: none">
+          <div class="category-name" id="important-name">Important</div>
+          <ul class="category-list" id="important-name"></ul>
+          <button class="task-create">Create A Task</button>
         </div>
+      </div>
+      <div class="sidebar">
+        <!-- This may be an a element that can toggle pinned categories such as 'My Day' or 'Important' -->
+        <ul class="pinned-categories">
+          <!-- JS created Pinned Categories -->
+        </ul>
+        <ul class="custom-categories">
+          <!-- Custom Categories -->
+        </ul>
+        <div class="create-category-container">
+          <button id="create-category">New Category</button>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

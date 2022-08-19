@@ -16,8 +16,6 @@ class TaskUI {
 
   static addTask(task) {
     // Note: How to specify which category object to append to? - the displayed category container
-    // const categoryChildren = document.querySelector('.main-UI').children;
-    // const categoryContainerArray = [...categoryChildren];
 
     const categoryContainerArray = Utility.spreadElements();
 
