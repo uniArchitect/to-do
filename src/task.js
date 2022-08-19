@@ -105,10 +105,8 @@ class TaskUI {
         <textarea id="task-info-text-area" name="notes" placeholder="Add note here">${task.notes}</textarea>
         `;
     TASK_INFO_DIV.appendChild(taskInfo);
-    // TASK_INFO_DIV.style.display = 'flex';
 
     taskInfo.style.display = "none";
-    TASK_INFO_DIV.style.display = "none";
   };
 
   // Feature - Show task information when ('a') link is clicked
@@ -125,7 +123,7 @@ class TaskUI {
     // if task item display is flex, then set display to none
     if (currentTask.style.display == "flex") {
       currentTask.style.display = "none";
-      TASK_INFO_DIV.style.display = "none";
+    //   TASK_INFO_DIV.style.display = "none";
       // if task item display is none, then set display to flex
     } else if (currentTask.style.display == "none") {
       // Each children element in the array set style display to none

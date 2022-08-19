@@ -127,7 +127,7 @@ button:hover {
 .task-info {
   /* position: absolute; */
   transform: translateX(150%);
-  transition: transform 0.5s ease-in; 
+  transition: 0.5s ease-in; 
   background: #474b4f;
   grid-column: 5 / 6;
   grid-row: 1 / 13;
@@ -137,7 +137,7 @@ button:hover {
   padding: 1em;
 }
 
-.task-info:active {
+.task-info-active {
   transform: translateX(0%);
 }
 
