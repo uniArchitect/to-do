@@ -164,3 +164,5 @@ CLOSE_TASK_BTN.addEventListener("click", () => {
 TASK_INFO_DIV.addEventListener("click", (e) => {
   TaskUI.setPriority(e.target);
 });
+
+export { MAIN_UI_DIV, TASK_INFO_DIV }

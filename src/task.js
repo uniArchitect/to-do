@@ -1,4 +1,5 @@
 import Utility from "./utility.js";
+import { MAIN_UI_DIV, TASK_INFO_DIV } from "./index";
 
 export default class Task {
   constructor(name, dueDate, description) {
@@ -16,7 +17,6 @@ class TaskUI {
 
   static addTask(task) {
     // Note: How to specify which category object to append to? - the displayed category container
-    const MAIN_UI_DIV = document.querySelector(".main-UI");
     const categoryContainerArray = Utility.spreadElements(MAIN_UI_DIV);
 
     // Filter out the child element with display 'block'
@@ -78,8 +78,6 @@ class TaskUI {
   // Create task info when task is created from task form submission
   // Note: index.js event listener 'click'
   static createTaskInfo = (task) => {
-    const TASK_INFO_DIV = document.querySelector(".task-info");
-
     // Create div element
     const taskInfo = document.createElement("div");
 
@@ -111,7 +109,6 @@ class TaskUI {
 
   // Feature - Show task information when ('a') link is clicked
   static showTaskInfo = (task) => {
-    const TASK_INFO_DIV = document.querySelector(".task-info");
     const taskClass = task.className.replace("name", "info");
 
     const taskContainerArray = Utility.spreadElements(TASK_INFO_DIV);

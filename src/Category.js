@@ -1,4 +1,5 @@
 import Utility from "./utility";
+import MAIN_UI_DIV from "./index";
 
 // Create Category information first with an input field
 // Then you can use add functions to append that information into the web page
@@ -8,10 +9,10 @@ export default class Category {
   }
 }
 
+// Rule - Only one class per module
 class CategoryUI {
   static hideChildrenElements = () => {
     // All children elements in main-UI container div are pushed into an array
-    const MAIN_UI_DIV = document.querySelector(".main-UI");
     const categoryContainerArray = Utility.spreadElements(MAIN_UI_DIV);
 
     // Each children element in the array set style display to none
@@ -78,7 +79,6 @@ class CategoryUI {
   };
 
   static addCategoryContainer = (category) => {
-    const MAIN_UI_DIV = document.querySelector(".main-UI");
 
     // Create - HTML element for main category list
     const categoryContainer = document.createElement("div");
@@ -153,8 +153,6 @@ class CategoryUI {
 
     // current container that was created style display to block
     currentContainer.style.display = "block";
-
-    // aside element style display = 'none'
   };
 }
 
