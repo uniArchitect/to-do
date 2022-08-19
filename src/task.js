@@ -15,7 +15,6 @@ class TaskUI {
     // Event - Append task argument to ${category.name}-list of current category shown in main-UI container div
     
     static addTask(task) {
-
         // Note: How to specify which category object to append to? - the displayed category container
         // const categoryChildren = document.querySelector('.main-UI').children;
         // const categoryContainerArray = [...categoryChildren];
@@ -58,7 +57,7 @@ class TaskUI {
         
         // Set inner HTML elements shown on task element
         // Convert revised task name value to original input
-        let taskOriginal = `${task.name}`.replaceAll('-', ' ');
+        const taskOriginal = `${task.name}`.replaceAll('-', ' ');
         taskName.innerHTML = taskOriginal
         taskDelete.innerHTML = `
         <svg style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -114,15 +113,14 @@ class TaskUI {
 
     // Feature - Show task information when ('a') link is clicked
     static showTaskInfo = (task) => {
-        
         const TASK_INFO_DIV = document.querySelector('.task-info');
-        let taskClass = task.className.replace('name', 'info');
+        const taskClass = task.className.replace('name', 'info');
 
         // All children elements in task-info container div are pushed into an array
         const otherTasks = document.querySelector('.task-info').children;
         const taskContainerArray = [...otherTasks];
 
-        let currentTask = document.querySelector(`.${taskClass}`);
+        const currentTask = document.querySelector(`.${taskClass}`);
 
         // if task item display is flex, then set display to none
         if (currentTask.style.display == 'flex') {
@@ -140,17 +138,15 @@ class TaskUI {
 
     // Event - Remove task
     static removeTask(task) {
-        
-        // const TASK_INFO_DIV = document.querySelector('.task-info');
         // This is task-delete
-        let currentElement = document.querySelector(`.${task.className}`);
+        const currentElement = document.querySelector(`.${task.className}`);
         // Should return "'task name'-priority"
-        let prevSibling = currentElement.previousElementSibling;
+        const prevSibling = currentElement.previousElementSibling;
         // Replace priority class name with info to match aside li element class
-        let taskClassRemove = prevSibling.className.replace('priority', 'info');
+        const taskClassRemove = prevSibling.className.replace('priority', 'info');
         
         // Define the element by class name
-        let removeTaskElement = document.querySelector(`.${taskClassRemove}`);
+        const removeTaskElement = document.querySelector(`.${taskClassRemove}`);
 
         // Remove task under main-UI
         task.parentElement.remove();
@@ -163,14 +159,13 @@ class TaskUI {
 
     // Event - Set style of border when task priority changes
     static setPriority(priority) {
-
         // define parent div element class name as a string
-        let parentElement = priority.parentElement.className;
-        let parentElementRev = parentElement.replace('info', 'object');
-        console.log(parentElementRev)
+        const parentElement = priority.parentElement.className;
+        const parentElementRev = parentElement.replace('info', 'object');
+        // console.log(parentElementRev)
 
         // define task variable in main-UI container
-        let taskObject = document.querySelector(`#${parentElementRev}`)
+        const taskObject = document.querySelector(`#${parentElementRev}`)
 
         // let style change if input is high, medium or low priority
         if (priority.value == 'High Priority') {
@@ -180,14 +175,14 @@ class TaskUI {
         } else if (priority.value == 'Low Priority') {
             taskObject.style.borderLeft = '.5em solid #5AB9EA'
         } else if (priority.value == 'No Priority') {
-            // Note: Default border to be set so height of task line item does not alter flexbox
-            taskObject.style.borderLeft = '.5em solid #474b4f'
-        }
+      // Note: Default border to be set so height of task line item does not alter flexbox
+      taskObject.style.borderLeft = '.5em solid #474b4f'
     }
+  }
 
-    // Event - Change name of task if task info input for name is changed
+  // Event - Change name of task if task info input for name is changed
 
-    // Event - Set text area and input .disabled = 'true'
+  // Event - Set text area and input .disabled = 'true'
 }
 
 export { TaskUI }

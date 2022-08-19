@@ -9,13 +9,9 @@ export default class Category {
 }
 
 class CategoryUI {
-
     static hideChildrenElements = () => {
         // All children elements in main-UI container div are pushed into an array
-        // const otherContainers = document.querySelector('.main-UI').children;
-        // const categoryContainerArray = [...otherContainers];
-
-        Utility.spreadElements();
+        const categoryContainerArray = Utility.spreadElements();
 
         // Each children element in the array set style display to none
         categoryContainerArray.forEach(element => element.style.display = 'none');
@@ -93,7 +89,7 @@ class CategoryUI {
         createTask.classList.add('task-create');
 
         // Convert revised category value to original input
-        let categoryOriginal = `${category.name}`.replaceAll('-', ' ');
+        const categoryOriginal = `${category.name}`.replaceAll('-', ' ');
         categoryName.innerHTML = categoryOriginal;
         createTask.innerHTML = 'Create A Task';
 
@@ -122,14 +118,13 @@ class CategoryUI {
         sideBarLink.setAttribute('id', 'category-link');
 
         // Convert revised category value to original input
-        let categoryOriginal = `${category.name}`.replaceAll('-', ' ');
+        const categoryOriginal = `${category.name}`.replaceAll('-', ' ');
         sideBarLink.innerHTML = categoryOriginal;
 
         SIDEBAR_DIV.appendChild(sideBarLink);
     }
 
     static switchCategory = (category) => {
-
         const currentContainer = document.querySelector(`.${category.name}-display`);
 
         CategoryUI.hideChildrenElements();
@@ -140,10 +135,8 @@ class CategoryUI {
 
     // Switch category from sidebar link
     static switchCategoryContainer = (link) => {
-        
         // get currentContainer
         // Note: get class name replace 'category' and replace with 'display' to grab coinciding container
-        // const linkClass = link.classList.replace('category', 'display');
         const linkClass = link.className.replace('category', 'display');
         // returns 'catname-display'
 
@@ -152,10 +145,10 @@ class CategoryUI {
         CategoryUI.hideChildrenElements();
 
         // current container that was created style display to block
-        currentContainer.style.display = 'block';
+    currentContainer.style.display = 'block';
 
-        // aside element style display = 'none'
-    }
+    // aside element style display = 'none'
+  }
 }
 
 export { CategoryUI }
