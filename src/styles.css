@@ -173,6 +173,10 @@ button:hover {
   border: 1px solid #4056a1;
 }
 
+#task-info-date {
+  font-family: 'Montserrat'
+}
+
 /* Each task-info object should be one unified class (use multiple classes?) */
 #task-card {
   display: flex;
