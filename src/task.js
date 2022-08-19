@@ -16,8 +16,8 @@ class TaskUI {
 
   static addTask(task) {
     // Note: How to specify which category object to append to? - the displayed category container
-
-    const categoryContainerArray = Utility.spreadElements();
+    const MAIN_UI_DIV = document.querySelector(".main-UI");
+    const categoryContainerArray = Utility.spreadElements(MAIN_UI_DIV);
 
     // Filter out the child element with display 'block'
     const visibleCategory = categoryContainerArray.filter(
@@ -114,9 +114,7 @@ class TaskUI {
     const TASK_INFO_DIV = document.querySelector(".task-info");
     const taskClass = task.className.replace("name", "info");
 
-    // All children elements in task-info container div are pushed into an array
-    const otherTasks = document.querySelector(".task-info").children;
-    const taskContainerArray = [...otherTasks];
+    const taskContainerArray = Utility.spreadElements(TASK_INFO_DIV);
 
     const currentTask = document.querySelector(`.${taskClass}`);
 

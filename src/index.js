@@ -83,38 +83,41 @@ document
   });
 
 // Create a Task Button - addTaskBtn.eventListener ('submit') =>
-document.querySelector(".task-form-field").addEventListener("submit", (e) => {
-  e.preventDefault();
+document
+  .querySelector(".task-form-field")
+  .addEventListener("submit", (e) => {
+  
+    e.preventDefault();
 
-  // const taskName is input field value
-  const taskName = document.querySelector("#name").value;
+    // const taskName is input field value
+    const taskName = document.querySelector("#name").value;
 
-  // const dueDate is input field value
-  const dueDate = document.querySelector("#due-date").value;
+    // const dueDate is input field value
+    const dueDate = document.querySelector("#due-date").value;
 
-  // const taskDescription is input field value
-  const taskDescription = document.querySelector("#description").value;
+    // const taskDescription is input field value
+    const taskDescription = document.querySelector("#description").value;
 
-  console.log(taskName);
+    console.log(taskName);
 
-  // value of 'name' to be altered to fit name
-  const taskNameRevised = taskName.replaceAll(" ", "-");
+    // value of 'name' to be altered to fit name
+    const taskNameRevised = taskName.replaceAll(" ", "-");
 
-  console.log(taskNameRevised);
+    console.log(taskNameRevised);
 
-  const task = new Task(taskNameRevised, dueDate, taskDescription);
+    const task = new Task(taskNameRevised, dueDate, taskDescription);
 
-  // TaskUI.function(task, category) - append task object to task list div element
-  TaskUI.addTask(task);
+    // TaskUI.function(task, category) - append task object to task list div element
+    TaskUI.addTask(task);
 
-  // Create task info element
-  TaskUI.createTaskInfo(task);
+    // Create task info element
+    TaskUI.createTaskInfo(task);
 
-  // Clear input fields
-  TaskUI.clearTaskForm();
+    // Clear input fields
+    TaskUI.clearTaskForm();
 
-  // Set class task-form-background display to 'none'
-  TASK_FORM_DIV.style.display = "none";
+    // Set class task-form-background display to 'none'
+    TASK_FORM_DIV.style.display = "none";
 });
 
 // Event - Switch categories from sidebar link

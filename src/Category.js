@@ -1,4 +1,4 @@
-import Utility from "./utility.js";
+import Utility from "./utility";
 
 // Create Category information first with an input field
 // Then you can use add functions to append that information into the web page
@@ -11,7 +11,8 @@ export default class Category {
 class CategoryUI {
   static hideChildrenElements = () => {
     // All children elements in main-UI container div are pushed into an array
-    const categoryContainerArray = Utility.spreadElements();
+    const MAIN_UI_DIV = document.querySelector(".main-UI");
+    const categoryContainerArray = Utility.spreadElements(MAIN_UI_DIV);
 
     // Each children element in the array set style display to none
     categoryContainerArray.forEach(

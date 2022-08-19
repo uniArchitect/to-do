@@ -5,8 +5,8 @@
 // task.js
 
 export default class Utility {
-  static spreadElements = () => {
-    const otherElements = document.querySelector(".main-UI").children;
+  static spreadElements = (element) => {
+    const otherElements = element.children;
     const siblingsArray = [...otherElements];
 
     return siblingsArray;
