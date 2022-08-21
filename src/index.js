@@ -9,9 +9,16 @@ const TASK_FORM_DIV = document.querySelector(".task-form-background");
 const TASK_INFO_DIV = document.querySelector(".task-info");
 const CLOSE_TASK_BTN = document.querySelector("#close-task-form");
 const NEW_CATEGORY_BTN = document.querySelector("#create-category");
+const TASK_NAME_INPUT = document.querySelector('input');
+const TASK_DESCRIPTION_INPUT = document.getElementById('description');
 // eslint-disable-next-line max-len
 // CATEGORY_FORM is not predefined when the page loads - figure out a way to access category_form as a global variable
 // const CATEGORY_FORM = document.querySelector('.category-form');
+
+// TO DO ITEMS
+// SEPARATE CLASSES INTO INDIVIDUAL MODULES
+// EACH TASK CAN BE SORTED INTO A PROJECT AS WELL
+// STYLING TO CROSS OFF ITEM WHEN TASK IS CHECKED OFF?
 
 // Pinned category attributes and append to sidebar
 CategoryUI.defaultCategory();
@@ -164,5 +171,26 @@ CLOSE_TASK_BTN.addEventListener("click", () => {
 TASK_INFO_DIV.addEventListener("click", (e) => {
   TaskUI.setPriority(e.target);
 });
+
+TASK_NAME_INPUT.addEventListener('input', () => {
+  // setCustomValidity sets a custom error message explaining why value is not valid
+  TASK_NAME_INPUT.setCustomValidity('');
+  // checkValidity checks the element's value against its constraints. If value is invalid, it fires an invalid event at the element and returns 'false', otherwise returns 'true'
+  TASK_NAME_INPUT.checkValidity();
+});
+
+// Invalid custom error message for task name
+TASK_NAME_INPUT.addEventListener('invalid', () => {
+  if (TASK_NAME_INPUT.value === '') {
+    TASK_NAME_INPUT.setCustomValidity('Task must have a name!');
+  } return
+});
+
+// Invalid custom error message for task description
+TASK_DESCRIPTION_INPUT.addEventListener('invalid', () => {
+  if (TASK_DESCRIPTION_INPUT.value === '') {
+    TASK_DESCRIPTION_INPUT.setCustomValidity('You need to describe the task!');
+  } return
+})
 
 export { MAIN_UI_DIV, TASK_INFO_DIV }
