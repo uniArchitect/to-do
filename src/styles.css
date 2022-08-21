@@ -174,7 +174,7 @@ button:hover {
 }
 
 #task-info-date {
-  font-family: 'Montserrat'
+  font-family: "Montserrat";
 }
 
 /* Each task-info object should be one unified class (use multiple classes?) */

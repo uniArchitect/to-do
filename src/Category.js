@@ -79,7 +79,6 @@ class CategoryUI {
   };
 
   static addCategoryContainer = (category) => {
-
     // Create - HTML element for main category list
     const categoryContainer = document.createElement("div");
     const categoryName = document.createElement("div");

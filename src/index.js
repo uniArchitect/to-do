@@ -9,8 +9,10 @@ const TASK_FORM_DIV = document.querySelector(".task-form-background");
 const TASK_INFO_DIV = document.querySelector(".task-info");
 const CLOSE_TASK_BTN = document.querySelector("#close-task-form");
 const NEW_CATEGORY_BTN = document.querySelector("#create-category");
-const TASK_NAME_INPUT = document.querySelector('input');
-const TASK_DESCRIPTION_INPUT = document.getElementById('description');
+const CATEGORY_INPUT = document.querySelector("#category-input-name");
+const TASK_NAME_INPUT = document.querySelector("input");
+const TASK_DESCRIPTION_INPUT = document.getElementById("description");
+const TASK_DATE_INPUT = document.getElementById("due-date");
 // eslint-disable-next-line max-len
 // CATEGORY_FORM is not predefined when the page loads - figure out a way to access category_form as a global variable
 // const CATEGORY_FORM = document.querySelector('.category-form');
@@ -90,41 +92,38 @@ document
   });
 
 // Create a Task Button - addTaskBtn.eventListener ('submit') =>
-document
-  .querySelector(".task-form-field")
-  .addEventListener("submit", (e) => {
-  
-    e.preventDefault();
+document.querySelector(".task-form-field").addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    // const taskName is input field value
-    const taskName = document.querySelector("#name").value;
+  // const taskName is input field value
+  const taskName = document.querySelector("#name").value;
 
-    // const dueDate is input field value
-    const dueDate = document.querySelector("#due-date").value;
+  // const dueDate is input field value
+  const dueDate = document.querySelector("#due-date").value;
 
-    // const taskDescription is input field value
-    const taskDescription = document.querySelector("#description").value;
+  // const taskDescription is input field value
+  const taskDescription = document.querySelector("#description").value;
 
-    console.log(taskName);
+  console.log(taskName);
 
-    // value of 'name' to be altered to fit name
-    const taskNameRevised = taskName.replaceAll(" ", "-");
+  // value of 'name' to be altered to fit name
+  const taskNameRevised = taskName.replaceAll(" ", "-");
 
-    console.log(taskNameRevised);
+  console.log(taskNameRevised);
 
-    const task = new Task(taskNameRevised, dueDate, taskDescription);
+  const task = new Task(taskNameRevised, dueDate, taskDescription);
 
-    // TaskUI.function(task, category) - append task object to task list div element
-    TaskUI.addTask(task);
+  // TaskUI.function(task, category) - append task object to task list div element
+  TaskUI.addTask(task);
 
-    // Create task info element
-    TaskUI.createTaskInfo(task);
+  // Create task info element
+  TaskUI.createTaskInfo(task);
 
-    // Clear input fields
-    TaskUI.clearTaskForm();
+  // Clear input fields
+  TaskUI.clearTaskForm();
 
-    // Set class task-form-background display to 'none'
-    TASK_FORM_DIV.style.display = "none";
+  // Set class task-form-background display to 'none'
+  TASK_FORM_DIV.style.display = "none";
 });
 
 // Event - Switch categories from sidebar link
@@ -172,25 +171,44 @@ TASK_INFO_DIV.addEventListener("click", (e) => {
   TaskUI.setPriority(e.target);
 });
 
-TASK_NAME_INPUT.addEventListener('input', () => {
+TASK_NAME_INPUT.addEventListener("input", () => {
   // setCustomValidity sets a custom error message explaining why value is not valid
-  TASK_NAME_INPUT.setCustomValidity('');
+  TASK_NAME_INPUT.setCustomValidity("");
   // checkValidity checks the element's value against its constraints. If value is invalid, it fires an invalid event at the element and returns 'false', otherwise returns 'true'
   TASK_NAME_INPUT.checkValidity();
 });
 
 // Invalid custom error message for task name
-TASK_NAME_INPUT.addEventListener('invalid', () => {
-  if (TASK_NAME_INPUT.value === '') {
-    TASK_NAME_INPUT.setCustomValidity('Task must have a name!');
-  } return
+TASK_NAME_INPUT.addEventListener("invalid", () => {
+  if (TASK_NAME_INPUT.value === "") {
+    TASK_NAME_INPUT.setCustomValidity("Task must have a name!");
+  }
+  return;
 });
 
 // Invalid custom error message for task description
-TASK_DESCRIPTION_INPUT.addEventListener('invalid', () => {
-  if (TASK_DESCRIPTION_INPUT.value === '') {
-    TASK_DESCRIPTION_INPUT.setCustomValidity('You need to describe the task!');
-  } return
-})
+TASK_DESCRIPTION_INPUT.addEventListener("invalid", () => {
+  if (TASK_DESCRIPTION_INPUT.value === "") {
+    TASK_DESCRIPTION_INPUT.setCustomValidity("You need to describe the task!");
+  }
+  return;
+});
 
-export { MAIN_UI_DIV, TASK_INFO_DIV }
+// Invalid custom error message for task due date
+TASK_DATE_INPUT.addEventListener("invalid", () => {
+  if (TASK_DATE_INPUT.value === "") {
+    TASK_DATE_INPUT.setCustomValidity("You need to set a due date!");
+  }
+  return;
+});
+
+// Invalid custom error message for category name
+const CREATE_CAT_UL = document.querySelector(".create-category-container");
+CREATE_CAT_UL.addEventListener("invalid", () => {
+  if (CATEGORY_INPUT.value === "") {
+    CATEGORY_INPUT.setCustomValidity("You need a name for your project!");
+  }
+  return;
+});
+
+export { MAIN_UI_DIV, TASK_INFO_DIV };
