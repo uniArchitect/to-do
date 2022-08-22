@@ -1,6 +1,7 @@
 import "./styles.css";
 import Task, { TaskUI } from "./task";
 import Category, { CategoryUI } from "./Category";
+import Validation from "./validation";
 // import spreadElements from './utility.js'
 
 // GLOBAL SCOPE
@@ -10,7 +11,7 @@ const TASK_INFO_DIV = document.querySelector(".task-info");
 const CLOSE_TASK_BTN = document.querySelector("#close-task-form");
 const NEW_CATEGORY_BTN = document.querySelector("#create-category");
 const CREATE_CAT_UL = document.querySelector(".create-category-container");
-const TASK_NAME_INPUT = document.querySelector("input");
+// const TASK_NAME_INPUT = document.querySelector("input");
 const TASK_DESCRIPTION_INPUT = document.querySelector("#description");
 const TASK_DATE_INPUT = document.querySelector("#due-date");
 // eslint-disable-next-line max-len
@@ -170,47 +171,9 @@ TASK_INFO_DIV.addEventListener("click", (e) => {
   TaskUI.setPriority(e.target);
 });
 
-TASK_NAME_INPUT.addEventListener("input", () => {
-  // setCustomValidity sets a custom error message explaining why value is not valid
-  TASK_NAME_INPUT.setCustomValidity("");
-  // checkValidity checks the element's value against its constraints. If value is invalid, it fires an invalid event at the element and returns 'false', otherwise returns 'true'
-  TASK_NAME_INPUT.checkValidity();
-});
-
-// Invalid custom error message for task name
-TASK_NAME_INPUT.addEventListener("invalid", () => {
-  if (TASK_NAME_INPUT.value === "") {
-    TASK_NAME_INPUT.setCustomValidity("Task must have a name!");
-  }
-});
-
-TASK_DESCRIPTION_INPUT.addEventListener("input", () => {
-  // setCustomValidity sets a custom error message explaining why value is not valid
-  TASK_DESCRIPTION_INPUT.setCustomValidity("");
-  // checkValidity checks the element's value against its constraints. If value is invalid, it fires an invalid event at the element and returns 'false', otherwise returns 'true'
-  TASK_DESCRIPTION_INPUT.checkValidity();
-});
-
-// Invalid custom error message for task description
-TASK_DESCRIPTION_INPUT.addEventListener("invalid", () => {
-  if (TASK_DESCRIPTION_INPUT.value === "") {
-    TASK_DESCRIPTION_INPUT.setCustomValidity("You need to describe the task!");
-  }
-});
-
-TASK_DATE_INPUT.addEventListener("input", () => {
-  // setCustomValidity sets a custom error message explaining why value is not valid
-  TASK_DATE_INPUT.setCustomValidity("");
-  // checkValidity checks the element's value against its constraints. If value is invalid, it fires an invalid event at the element and returns 'false', otherwise returns 'true'
-  TASK_DATE_INPUT.checkValidity();
-});
-
-// Invalid custom error message for task due date
-TASK_DATE_INPUT.addEventListener("invalid", () => {
-  if (TASK_DATE_INPUT.value === "") {
-    TASK_DATE_INPUT.setCustomValidity("You need to set a due date!");
-  }
-});
+Validation.taskNameInput();
+Validation.taskDescriptionInput();
+Validation.taskDueDateInput();
 
 // Invalid custom error message for category name
 // Read more into event delegation for this event listener - inputs do not bubble, so this has to be called in an environment where category input is defined? Maybe where element is created?
@@ -234,4 +197,4 @@ CREATE_CAT_UL.addEventListener("click", () => {
   });
 });
 
-export { MAIN_UI_DIV, TASK_INFO_DIV };
+export { MAIN_UI_DIV, TASK_INFO_DIV, CREATE_CAT_UL };
