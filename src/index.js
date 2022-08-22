@@ -216,14 +216,22 @@ TASK_DATE_INPUT.addEventListener("invalid", () => {
 // Read more into event delegation for this event listener - inputs do not bubble, so this has to be called in an environment where category input is defined? Maybe where element is created?
 // Or create a whole new event listener?
 
-// CREATE_CAT_UL.addEventListener("click", () => {
-//   const CATEGORY_INPUT = document.querySelector("#category-input-name");
-//   console.log(CATEGORY_INPUT.value);
-//   CATEGORY_INPUT.addEventListener("invalid", () => {
-//     if (CATEGORY_INPUT.value === "") {
-//       CATEGORY_INPUT.setCustomValidity("You need a name for your project!");
-//     }
-//   });
-// });
+CREATE_CAT_UL.addEventListener("click", () => {
+  const CATEGORY_INPUT = document.querySelector("#category-input-name");
+
+  CATEGORY_INPUT.addEventListener("input", () => {
+    // setCustomValidity sets a custom error message explaining why value is not valid
+    CATEGORY_INPUT.setCustomValidity("");
+    // checkValidity checks the element's value against its constraints. If value is invalid, it fires an invalid event at the element and returns 'false', otherwise returns 'true'
+    CATEGORY_INPUT.checkValidity();
+  });
+
+  console.log(CATEGORY_INPUT.value);
+  CATEGORY_INPUT.addEventListener("invalid", () => {
+    if (CATEGORY_INPUT.value === "") {
+      CATEGORY_INPUT.setCustomValidity("You need a name for your project!");
+    }
+  });
+});
 
 export { MAIN_UI_DIV, TASK_INFO_DIV };
