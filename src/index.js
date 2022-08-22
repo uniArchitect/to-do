@@ -11,9 +11,6 @@ const TASK_INFO_DIV = document.querySelector(".task-info");
 const CLOSE_TASK_BTN = document.querySelector("#close-task-form");
 const NEW_CATEGORY_BTN = document.querySelector("#create-category");
 const CREATE_CAT_UL = document.querySelector(".create-category-container");
-// const TASK_NAME_INPUT = document.querySelector("input");
-const TASK_DESCRIPTION_INPUT = document.querySelector("#description");
-const TASK_DATE_INPUT = document.querySelector("#due-date");
 // eslint-disable-next-line max-len
 // CATEGORY_FORM is not predefined when the page loads - figure out a way to access category_form as a global variable
 // const CATEGORY_FORM = document.querySelector('.category-form');
@@ -76,6 +73,7 @@ document
     NEW_CATEGORY_BTN.style.display = "block";
   });
 
+// Cancel out of category input
 document
   .querySelector(".create-category-container")
   .addEventListener("click", (e) => {
@@ -171,30 +169,16 @@ TASK_INFO_DIV.addEventListener("click", (e) => {
   TaskUI.setPriority(e.target);
 });
 
+// Validation - Invalid custom error message for task name
 Validation.taskNameInput();
+
+// Validation - Invalid custom error message for task description
 Validation.taskDescriptionInput();
+
+// Validation - Invalid custom error message for task due date
 Validation.taskDueDateInput();
 
-// Invalid custom error message for category name
-// Read more into event delegation for this event listener - inputs do not bubble, so this has to be called in an environment where category input is defined? Maybe where element is created?
-// Or create a whole new event listener?
-
-CREATE_CAT_UL.addEventListener("click", () => {
-  const CATEGORY_INPUT = document.querySelector("#category-input-name");
-
-  CATEGORY_INPUT.addEventListener("input", () => {
-    // setCustomValidity sets a custom error message explaining why value is not valid
-    CATEGORY_INPUT.setCustomValidity("");
-    // checkValidity checks the element's value against its constraints. If value is invalid, it fires an invalid event at the element and returns 'false', otherwise returns 'true'
-    CATEGORY_INPUT.checkValidity();
-  });
-
-  console.log(CATEGORY_INPUT.value);
-  CATEGORY_INPUT.addEventListener("invalid", () => {
-    if (CATEGORY_INPUT.value === "") {
-      CATEGORY_INPUT.setCustomValidity("You need a name for your project!");
-    }
-  });
-});
+// Validation - Invalid custom error message for category name
+Validation.categoryCreateInput();
 
 export { MAIN_UI_DIV, TASK_INFO_DIV, CREATE_CAT_UL };

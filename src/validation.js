@@ -1,4 +1,4 @@
-// import { MAIN_UI_DIV, TASK_INFO_DIV, CREATE_CAT_UL } from "./index";
+import { CREATE_CAT_UL } from "./index";
 
 // GLOBAL VARIABLE
 const TASK_NAME_INPUT = document.querySelector("input");
@@ -52,5 +52,25 @@ export default class Validation {
           TASK_DATE_INPUT.setCustomValidity("You need to set a due date!");
         }
       });
+  }
+
+  static categoryCreateInput = () => {
+    CREATE_CAT_UL.addEventListener("click", () => {
+        const CATEGORY_INPUT = document.querySelector("#category-input-name");
+        
+        CATEGORY_INPUT.addEventListener("input", () => {
+            // setCustomValidity sets a custom error message explaining why value is not valid
+            CATEGORY_INPUT.setCustomValidity("");
+            // checkValidity checks the element's value against its constraints. If value is invalid, it fires an invalid event at the element and returns 'false', otherwise returns 'true'
+            CATEGORY_INPUT.checkValidity();
+        });
+        
+        console.log(CATEGORY_INPUT.value);
+        CATEGORY_INPUT.addEventListener("invalid", () => {
+            if (CATEGORY_INPUT.value === "") {
+            CATEGORY_INPUT.setCustomValidity("You need a name for your project!");
+            }
+        });
+    });
   }
 }
