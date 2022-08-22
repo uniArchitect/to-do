@@ -25,6 +25,14 @@ input:focus {
   border: 1px solid #4056a1;
 }
 
+input:invalid {
+  border: 1px solid #f13c20;
+}
+
+/* input:valid {
+  border: 1px solid #14a76c;
+} */
+
 select {
   border-radius: 5px;
   border: 1px solid #222629;
