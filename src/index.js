@@ -9,10 +9,10 @@ const TASK_FORM_DIV = document.querySelector(".task-form-background");
 const TASK_INFO_DIV = document.querySelector(".task-info");
 const CLOSE_TASK_BTN = document.querySelector("#close-task-form");
 const NEW_CATEGORY_BTN = document.querySelector("#create-category");
-const CATEGORY_INPUT = document.querySelector("#category-input-name");
+const CREATE_CAT_UL = document.querySelector(".create-category-container");
 const TASK_NAME_INPUT = document.querySelector("input");
-const TASK_DESCRIPTION_INPUT = document.getElementById("description");
-const TASK_DATE_INPUT = document.getElementById("due-date");
+const TASK_DESCRIPTION_INPUT = document.querySelector("#description");
+const TASK_DATE_INPUT = document.querySelector("#due-date");
 // eslint-disable-next-line max-len
 // CATEGORY_FORM is not predefined when the page loads - figure out a way to access category_form as a global variable
 // const CATEGORY_FORM = document.querySelector('.category-form');
@@ -27,7 +27,6 @@ CategoryUI.defaultCategory();
 
 // Event - Create input field for new category
 NEW_CATEGORY_BTN.addEventListener("click", () => {
-  const CREATE_CAT_UL = document.querySelector(".create-category-container");
   const CATEGORY_FORM = document.querySelector(".category-form");
 
   if (CREATE_CAT_UL.childElementCount == "1") {
@@ -50,6 +49,8 @@ document
   .addEventListener("submit", (e) => {
     e.preventDefault();
 
+    // event listener "submit" won't even happen when the field is empty
+    // figure out how to take the invalid event outside of this event listener
     const name = document.querySelector("#category-input-name").value;
     const CATEGORY_FORM = document.querySelector(".category-form");
 
@@ -72,8 +73,6 @@ document
 
     // New category button reappears
     NEW_CATEGORY_BTN.style.display = "block";
-
-    return category;
   });
 
 document
@@ -183,7 +182,13 @@ TASK_NAME_INPUT.addEventListener("invalid", () => {
   if (TASK_NAME_INPUT.value === "") {
     TASK_NAME_INPUT.setCustomValidity("Task must have a name!");
   }
-  return;
+});
+
+TASK_DESCRIPTION_INPUT.addEventListener("input", () => {
+  // setCustomValidity sets a custom error message explaining why value is not valid
+  TASK_DESCRIPTION_INPUT.setCustomValidity("");
+  // checkValidity checks the element's value against its constraints. If value is invalid, it fires an invalid event at the element and returns 'false', otherwise returns 'true'
+  TASK_DESCRIPTION_INPUT.checkValidity();
 });
 
 // Invalid custom error message for task description
@@ -191,7 +196,13 @@ TASK_DESCRIPTION_INPUT.addEventListener("invalid", () => {
   if (TASK_DESCRIPTION_INPUT.value === "") {
     TASK_DESCRIPTION_INPUT.setCustomValidity("You need to describe the task!");
   }
-  return;
+});
+
+TASK_DATE_INPUT.addEventListener("input", () => {
+  // setCustomValidity sets a custom error message explaining why value is not valid
+  TASK_DATE_INPUT.setCustomValidity("");
+  // checkValidity checks the element's value against its constraints. If value is invalid, it fires an invalid event at the element and returns 'false', otherwise returns 'true'
+  TASK_DATE_INPUT.checkValidity();
 });
 
 // Invalid custom error message for task due date
@@ -199,16 +210,20 @@ TASK_DATE_INPUT.addEventListener("invalid", () => {
   if (TASK_DATE_INPUT.value === "") {
     TASK_DATE_INPUT.setCustomValidity("You need to set a due date!");
   }
-  return;
 });
 
 // Invalid custom error message for category name
-const CREATE_CAT_UL = document.querySelector(".create-category-container");
-CREATE_CAT_UL.addEventListener("invalid", () => {
-  if (CATEGORY_INPUT.value === "") {
-    CATEGORY_INPUT.setCustomValidity("You need a name for your project!");
-  }
-  return;
-});
+// Read more into event delegation for this event listener - inputs do not bubble, so this has to be called in an environment where category input is defined? Maybe where element is created?
+// Or create a whole new event listener?
+
+// CREATE_CAT_UL.addEventListener("click", () => {
+//   const CATEGORY_INPUT = document.querySelector("#category-input-name");
+//   console.log(CATEGORY_INPUT.value);
+//   CATEGORY_INPUT.addEventListener("invalid", () => {
+//     if (CATEGORY_INPUT.value === "") {
+//       CATEGORY_INPUT.setCustomValidity("You need a name for your project!");
+//     }
+//   });
+// });
 
 export { MAIN_UI_DIV, TASK_INFO_DIV };

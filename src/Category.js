@@ -1,5 +1,5 @@
 import Utility from "./utility";
-import MAIN_UI_DIV from "./index";
+import { MAIN_UI_DIV } from "./index";
 
 // Create Category information first with an input field
 // Then you can use add functions to append that information into the web page
